@@ -1,0 +1,100 @@
+
+
+body{
+    background-color: black;
+}
+#letter{
+    height:auto;
+    width:100vw;
+    position:absolute;
+        top: 0;
+        left: 0;
+}
+#text{
+    position:absolute;
+        top:10%;
+        left:10%;
+        color:red;
+        text-align: center;
+        width:30rem;
+        white-space: normal;
+        border: 1px solid;
+        color:transparent;
+        background-color: transparent;
+}
+@media screen and (max-width:2560px){
+    #text{
+        position:absolute;
+            top:35rem;
+            left:15rem;
+            color:blue;
+            width:120rem;
+            height: 180rem;
+            font-size: 5rem;
+}
+}
+@media screen and (max-width:1441px){
+    #text{
+        position:absolute;
+            top:20rem;
+            left:10rem;
+            color:blue;
+            width:68rem;
+            height: 102rem;
+            font-size: 3rem;
+}
+}
+@media screen and (max-width:1225px){
+    #text{
+        position:absolute;
+            top:15rem;
+            left:7rem;
+            width:49rem;
+            height: 75rem;
+            font-size: 2rem;
+}
+}
+@media screen and (max-width:900px){
+    #text{
+        position:absolute;
+            top:11rem;
+            left:6rem;
+            color:blue;
+            width:35rem;
+            height: 53rem;
+            font-size: 2rem;
+}
+}
+@media screen and (max-width:600px){
+    #text{
+        position:absolute;
+            top:7rem;
+            left:3rem;
+            color:blue;
+            width:20rem;
+            height:30rem;
+            font-size: 1rem;
+}
+}
+@media screen and (max-width:376px){
+    #text{
+        position:absolute;
+            top:6rem;
+            left:2rem;
+            color:blue;
+            width:19rem;
+            height: 30rem;
+            font-size: 1rem;
+}
+}
+@media screen and (max-width:320px){
+    #text{
+        position:absolute;
+            top:4rem;
+            left:3rem;
+            color:blue;
+            width:14rem;
+            height: 21rem;
+            font-size: 1rem;
+}
+}
