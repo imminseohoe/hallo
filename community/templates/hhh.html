@@ -2,6 +2,11 @@
 {% load static %}
 <html lang="en">
 <head>
+
+    <style>
+
+        a {font-size: 100px;}
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +14,6 @@
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
 </head>
 <body>
-    eee
+    <a href="{% url 'mypage' username='junmin'%}">메인페이지가기 (임시임)</a>
 </body>
 </html>
