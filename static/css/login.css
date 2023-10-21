@@ -1,0 +1,26 @@
+#pumpkin{
+    position:absolute;
+    width: 15rem;
+    max-width:100%;
+    height: auto;
+    top: 35%;
+    left: 50%;
+    transform:translate(-50%,-50%)
+}
+#페이지{
+    color:red;
+    font-size: 3rem;
+    width:100vw;
+    text-align: center;
+    font-family: 'Cute Font', cursive;
+    position:absolute;
+    top: 18%;
+    left: 50%;
+    transform:translate(-50%,-50%)
+}
+#google{
+    position:absolute;
+    top: 60%;
+    left: 50%;
+    transform:translate(-50%,-50%)
+}

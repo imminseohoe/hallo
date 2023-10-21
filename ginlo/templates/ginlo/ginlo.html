@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 {% load socialaccount %}
 {% providers_media_js %} 
 <!DOCTYPE html>
@@ -25,11 +25,8 @@
 <body class="a">
     <span id="페이지">🎃호박만들기🎃
     </span>
-    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}"  onclick='myFunction()' alt="pumpkin">
-    <form action="{% provider_login_url 'google' %}" method='post'>
-        {% csrf_token %}
-        <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}">
-
+    <img id="pumpkin" src = "{% static 'img\pumpkin.png %'}" alt="pumpkin">
+    <a href="{%provider_login_url 'google'%}"><img id="google" src ="{% static 'img/pumpkin.png %'}"></a>
     
     <label for="languageSelector"
     style="color:white;

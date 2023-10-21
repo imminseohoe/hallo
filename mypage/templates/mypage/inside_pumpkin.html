@@ -29,6 +29,8 @@
     <ul>
         {% for article in article_list %}
         <li>
+        {{ article.name }} 
+        <br>
         <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
         <script>
             var candyImages = [
@@ -47,7 +49,7 @@
             var imageElement = document.querySelector("li:last-child .one_letter");
             imageElement.src = randomImage;
         </script>
-        {{ article.name }} 
+
         </li>
         {% endfor %}
     </ul>

@@ -24,9 +24,12 @@ def mainpage(request, username):
 @login_required
 def inside_pumpkin(request, username):
     user = request.user
+    users = User.objects.get(username=username)
+    article_list = Article.objects.filter(user=users)
     context = {
         'user': user,
         'username' : username,
+        'article_list' : article_list
 
     }
     return render(request, 'mypage/inside_pumpkin.html', context)

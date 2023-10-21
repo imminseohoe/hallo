@@ -3,10 +3,10 @@ var click = 0
 var tt = true
 var ttt = true
 function myFunction() {
-  if (click >= 100 && ttt) {
-    document.querySelector(".speech-bubble").innerText = "흥 나 삐짐!"
+  if (click >= 100) {
+    document.querySelector(".speech-bubble").innerText = 'dsadja'
     ttt = false
-  } else if (click >= 30 && tt && ttt) {
+  } else if (click >= 30 && ttt) {
     document.querySelector(".speech-bubble").innerText = '그만 때려.. 아파..'
     tt = false
   } else {
