@@ -1,46 +1,25 @@
-{% load static %}
 {% load socialaccount %}
 {% providers_media_js %} 
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 <head>
-    <style>
 
-        body {
-            background-image: url("{% static 'img/inside_pumpkin_background.png' %}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 100vh;
-            width: auto;
-            margin: 0;
-        }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link href='{% static "css/login.css"%}' rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Dokdo&family=East+Sea+Dokdo&family=Roboto+Mono&display=swap" rel="stylesheet">
-</head>
-<body class="a">
-    <span id="페이지">🎃호박만들기🎃
-    </span>
-    <img id="pumpkin" src = "{% static 'img\pumpkin.png %'}" alt="pumpkin">
-    <a href="{%provider_login_url 'google'%}"><img id="google" src ="{% static 'img/pumpkin.png %'}"></a>
     
-    <label for="languageSelector"
-    style="color:white;
-    position: absolute;
-    bottom: 30px;
-    right:10px";>Language</label>    
-                 <select 
-                 id="languageSelector"
-                 style="position: absolute;
-                 bottom: 5px;
-                 right: 10px;">
-                 <option value="en">English</option>
-                 <option value="vi">Tiếng Việt</option>
-                 <option value="ko">한국어</option>
-                </select> 
+</head>
+<body>
+    <h1> hi </h1>
+
+    <a href="/accounts/signup">회원가입</a> <br>
+
+    {% if user.is_authenticated %}
+    <a href="/accounts/logout"><img src = "{% static 'img/pumpkin.png' %}"></a> <br>
+    {{user.username}} 님이 로그인 중
+
+    {% else %}
+    <form action="{% provider_login_url 'google' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="image-button">
+        <img src="{% static 'img/pumpkin.png' %}" alt="Google Login">
+      </button>
+    </form>
+    {% endif %}
 </body>
-</html>
