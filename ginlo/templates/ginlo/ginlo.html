@@ -2,24 +2,32 @@
 {% providers_media_js %} 
 {% load static %}
 <head>
+    <style>
+        .image-button{
+          border: 0px solid;
+          background-color: transparent;
+        }
+        body {
+            background-image: url("{% static 'img/background.jpg' %}");
+            background-size: cover;
+            background-repeat : no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+          }
+      </style>
+      <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
-    
 </head>
 <body>
-    <h1> hi </h1>
-
-    <a href="/accounts/signup">회원가입</a> <br>
-
-    {% if user.is_authenticated %}
-    <a href="/accounts/logout"><img src = "{% static 'img/pumpkin.png' %}"></a> <br>
-    {{user.username}} 님이 로그인 중
-
-    {% else %}
+    <span id="페이지">🎃Make your pumpkin🎃</span>
+    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}"alt="pumpkin">
     <form action="{% provider_login_url 'google' %}" method="post">
       {% csrf_token %}
-      <button type="submit" class="image-button">
-        <img src="{% static 'img/pumpkin.png' %}" alt="Google Login">
+      <button id = "google"type="submit" class="image-button">
+        <img src="{% static 'img/sign_in_google.png' %}" alt="Google Login">
       </button>
     </form>
-    {% endif %}
+
 </body>
