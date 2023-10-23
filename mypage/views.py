@@ -42,7 +42,7 @@ def write(request, username):
             article = form.save(commit=False)
             article.user = User.objects.get(username=username)
             article.save()
-            return redirect('user_list', username=username)
+            return redirect('inside_pumpkin', username=username)
     else:
         form = Form()
         

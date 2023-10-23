@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.ginlo, name='user_view'),
-    path('choose', views.choose, name = 'choose')
+    path('choose_name/', views.choose_name, name='choose_name'),
 ]

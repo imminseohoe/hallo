@@ -148,7 +148,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
-LOGIN_REDIRECT_URL = '/ginlo/choose'
+LOGIN_REDIRECT_URL = '/ginlo/choose_name'
 LOGIN_URL = '/ginlo'
 
 SOCIALACCOUNT_PROVIDERS = {

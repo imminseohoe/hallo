@@ -8,13 +8,15 @@
     <title>Write</title>
     <style>
         body {
-            background-color: wheat;
+        background-color: orange;}
+        .form{
+            text-align: center;
         }
     </style>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
 </head>
 <body>
-    <form action="" method="post">
+    <form class="form" method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">저장</button>

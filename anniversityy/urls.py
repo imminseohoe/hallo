@@ -6,7 +6,7 @@ from community.views import molo
 
 urlpatterns = [
     path('', molo, name='molo'),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
     path('ginlo/', include('ginlo.urls')),
     path('accounts/',include('allauth.urls')),
     path('mypage/', include('mypage.urls')),
