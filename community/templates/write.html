@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/letter.css' %}" rel="stylesheet">
+    <link href="{% static 'css/kr/letter.css' %}" rel="stylesheet">
     <title>Write</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+    
     <style>
         body {
-        background-color: orange;}
+            background-image: url("{% static 'img/background_letter.jpg' %}");
+            background-size: cover;
+            background-repeat : no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+          }
         .form{
             text-align: center;
+
         }
     </style>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">

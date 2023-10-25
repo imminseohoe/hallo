@@ -3,37 +3,40 @@
 <html lang="en">
 <head>
 
-  <style>
-    a {
-      text-decoration: none;
-    }
-    body {
-      background-image: url("{% static 'img/background.jpg' %}");
-      background-size: cover;
-      background-repeat : no-repeat;
-      background-position: center;
-      height: 100vh;
-      width: auto;
-      margin: 0;
-    }
-     
-  </style>
-    <script src ="{% static 'js/main.js' %}"></script>
+   <style>
+        a {
+        text-decoration: none;
+        }
+        body {
+        background-image: url("{% static 'img/background.jpg' %}");
+        background-size: cover;
+        background-repeat : no-repeat;
+        background-position: center;
+        height: 100vh;
+        width: auto;
+        margin: 0;
+        }
+    
+   </style>
+    <script src ="{% static 'js/kr/main.js' %}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trick or letter</title>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
-    <link rel="stylesheet" href="{% static 'css/mainPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/kr/mainPage.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
-</head>
+    <script language="javascript">
+        function showPopup() { window.open("{% url 'ranking' %}", "a", "width=300, heig500, left=100, top=50"); }
+    </script>
+  </head>
 <body>
 
      <span id="페이지">🎃{{ username }} 님에게<br >
         n개의 사탕이 전달됐어요
      <button id="share"><a href="{% url 'inside_pumpkin' username=username %}" style="text-decoration: none;">호박내부보기</a></button>
      <button id="interior">공유하러가기</button>
-     <button id="write"><a href="{% url 'write' username=username %}" style="text-decoration: none;">편지쓰기</a></button>
 
+     <button id="write" onclick="showPopup();">랭킹</button>
      </span>
     <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}" onclick='myFunction()' alt="pumpkin">
     <span class="speech-bubble">안녕</span>   

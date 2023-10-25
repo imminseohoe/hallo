@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+    <style>
+        ul {
+            list-style-type: none; 
+            padding: 0; 
+        }
+        body {
+            background-image: url("{% static 'img/inside_pumpkin_background.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inside</title>
+    <link href="{% static 'css/kr/inside_pumpkin.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>{{username}}님의 호박안</h1>
+    <span class="letter">편지공개까지 n 시간</span><br>
+    <button id="friend"><a href="{% url 'write' username=username %}" style="text-decoration: none;">편지쓰기</a></button>
+    <img id="pumpkin" src = "{% static 'img/table_pumpkin.png' %}"  alt="pumpkin">
+    <ul>
+        {% for article in article_list %}
+        <li>
+        {{ article.name }} 
+        <br>
+        <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
+        <script>
+            var candyImages = [
+            "{% static 'img/candy/candy1.png' %}",
+            "{% static 'img/candy/candy2.png' %}",
+            "{% static 'img/candy/candy3.png' %}",
+            "{% static 'img/candy/candy3.png' %}"
+            ];
+
+
+            var randomIndex = Math.floor(Math.random() * candyImages.length);
+            var randomImage = candyImages[randomIndex];
+
+
+            var imageElement = document.querySelector("li:last-child .one_letter");
+            imageElement.src = randomImage;
+        </script>
+
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

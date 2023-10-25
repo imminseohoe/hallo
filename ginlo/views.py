@@ -17,7 +17,7 @@ def choose_name(request):
                 user = User.objects.get(username=request.user.username)
                 user.username = new_username
                 user.save()
-                return redirect('mypage', user)
+                return redirect('mypage_kr', user)
             except User.DoesNotExist:
                 return redirect('user_view')
     else:

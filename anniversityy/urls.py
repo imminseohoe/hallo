@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from community.views import molo
+from community.views import molo, ranking
 
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
     path('ginlo/', include('ginlo.urls')),
     path('accounts/',include('allauth.urls')),
     path('mypage/', include('mypage.urls')),
+    path('ranking/', ranking, name="ranking")
 
 ]

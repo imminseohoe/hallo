@@ -1,9 +1,46 @@
-
-{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+        body {
+            background-image: url("{% static 'img/background.jpg' %}");
+            background-size: cover;
+            background-repeat : no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+          }
+          .choose{
+            text-align: center;
+          }
+          .form{
+            font-size: 1.5rem;
+            font-family: 'Orbit', sans-serif;
+          }
+  </style>
+      <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+</head>
+<body>
+  {% block content %}
   <h2>이름 선택</h2>
-  <form method="post" action="{% url 'choose_name' %}">
+  <form class='choose' method="post" action="{% url 'choose_name' %}">
     {% csrf_token %}  <!-- CSRF 보안 토큰을 추가합니다. -->
-    <input type="text" name="name" placeholder="이름을 입력하세요">
-    <button type="submit">저장</button>
+    <input class='form' type="text" name="name" placeholder="이름을 입력하세요"><br>
+    <button type="submit">저장</button><br>
+    <label for="languageSelector"
+    style="color:white;
+    position: fixed;
+    top: 30px; 
+    right:10px";>Language</label>    
+                 <select>
+                 <option value="en">English</option>
+                 <option value="ko">한국어</option>
+                </select> 
   </form>   
 {% endblock %}
+</body>
+</html>

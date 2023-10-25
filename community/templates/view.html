@@ -6,10 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view</title>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("{% static 'img/background_letter.jpg' %}");
+            background-size: cover;
+            background-repeat : no-repeat;
+            background-position: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+
+            text-align: center;
+            font-family: 'Orbit', sans-serif;
+
+        }
+        .a{
+            border: 1px solid;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .b{
+            border: 1px solid;
+            background-color: white;
+            border-radius: 5px;
+            position: relative;
+            top: 10px;
+            
+        }
+    </style>
 </head>
 <body>
-    {{article.name}}(이)가
+    <a class="a">From {{article.name}}</a>
     <br>
-    {{article.contents}}
+    <b class="b">{{article.contents}}</b>
 </body>
 </html>

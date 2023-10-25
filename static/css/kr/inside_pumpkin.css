@@ -1,6 +1,11 @@
 a {
     text-decoration-line: none;
 }
+.friend{
+    font-size: 2.5rem;
+    font-family: 'Cute Font', cursive;
+    border-radius: 15px;
+}
 #pumpkin{
 	position:absolute;
 	bottom: 1%;

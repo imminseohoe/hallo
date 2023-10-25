@@ -19,8 +19,8 @@
     bottom:-3rem;
     font-size: 1.5rem;
     border:1px solid;
-    color:black;
-    background-color: rgb(255, 140, 0);
+    color:white;
+    background-color: black;
     font-family: 'Cute Font', cursive;
     border-radius: 15px;
 }
@@ -30,8 +30,8 @@
     bottom:-6rem;
     font-size:1.5rem;
     border:1px solid;
-    color:white;
-    background-color: black;
+    color:black;
+    background-color: rgb(255, 140, 0);
     font-family: 'Cute Font', cursive;
     border-radius: 15px;
 }
@@ -46,12 +46,16 @@
 
 }
 #share:active{
+    color:black;
+    background-color: white;
+}
+#interior:active{
     color:white;
     background-color: rgb(160, 88, 0);
 }
-#interior:active{
+#write:active{
     color:black;
-    background-color: white;
+    background-color: rgb(196, 193, 193);
 }
 .speech-bubble {
 	position: absolute;

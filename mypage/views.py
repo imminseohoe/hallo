@@ -11,29 +11,33 @@ def mainpage(request, username):
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
-        # 유저가 존재하지 않을 때 처리할 내용
-        # 예를 들어 404 에러를 반환하거나 다른 처리를 할 수 있습니다.
-        raise Http404("해당 유저를 찾을 수 없습니다.")
+        return redirect('user_view')
 
     context = {
         'user': user,
         'username' : username,
     }
-    return render(request, 'mypage/mainpage.html', context)
+    return render(request, 'mypage/kr/mainpage.html', context)
 
 @login_required
 def inside_pumpkin(request, username):
-    user = request.user
-    users = User.objects.get(username=username)
-    article_list = Article.objects.filter(user=users)
-    context = {
-        'user': user,
-        'username' : username,
-        'article_list' : article_list
-
-    }
-    return render(request, 'mypage/inside_pumpkin.html', context)
-
+    if request.user.username == username:
+        user = request.user
+        users = User.objects.get(username=username)
+        article_list = Article.objects.filter(user=users)
+        context = {
+            'user': user,
+            'username' : username,
+            'article_list' : article_list
+        }
+        return render(request, 'mypage/kr/inside_pumpkin.html', context)
+    else:
+        japp_context ={
+            'username' : username,
+            'article_list': Article.objects.filter(user=User.objects.get(username=username))
+        }
+        
+        return render(request, 'mypage/kr/inside_pumpkin_notme.html', japp_context)
 @login_required
 def write(request, username):
     if request.method == 'POST':
@@ -45,7 +49,7 @@ def write(request, username):
             return redirect('inside_pumpkin', username=username)
     else:
         form = Form()
-        
+                                                                                                                                                        
     return render(request, 'write.html', {'form': form})
 
 @login_required

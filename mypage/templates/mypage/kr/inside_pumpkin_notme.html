@@ -21,7 +21,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inside</title>
-    <link href="{% static 'css/inside_pumpkin.css' %}" rel="stylesheet">
+    <link href="{% static 'css/kr/inside_pumpkin.css' %}" rel="stylesheet">
 </head>
 <body>
     <h1>{{username}}님의 호박안</h1>
@@ -31,14 +31,13 @@
         <li>
         {{ article.name }} 
         <br>
-        <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
+        <img class="one_letter" src="" alt="Candy Image">
         <script>
             var candyImages = [
-            "{% static 'img/candy/bar_candy1.png' %}",
-            "{% static 'img/candy/bar_candy_2.png' %}",
             "{% static 'img/candy/candy1.png' %}",
             "{% static 'img/candy/candy2.png' %}",
             "{% static 'img/candy/candy3.png' %}",
+            "{% static 'img/candy/candy4.png' %}"
             ];
 
             // 랜덤 사탕 이미지 선택
