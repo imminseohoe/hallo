@@ -1,8 +1,8 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from community.views import molo, ranking
-
+from community.views import molo, ranking_kr
+from mypage.views import update_click_count
 
 urlpatterns = [
     path('', molo, name='molo'),
@@ -10,6 +10,7 @@ urlpatterns = [
     path('ginlo/', include('ginlo.urls')),
     path('accounts/',include('allauth.urls')),
     path('mypage/', include('mypage.urls')),
-    path('ranking/', ranking, name="ranking")
+    path('ranking/', ranking_kr, name="ranking_kr"),
+
 
 ]

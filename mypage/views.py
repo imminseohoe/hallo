@@ -1,11 +1,39 @@
 from django.contrib.auth.decorators import login_required
-from mypage.models import UserProfile, Article
+from mypage.models import UserProfile, Article, ClickCount
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect
 from mypage.forms import Form
 
-
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.shortcuts import render
+from .models import ClickCount
+@login_required
+def ranking_kr(request, username):
+    user = User.objects.get(username=username)
+    click_count_obj, created = ClickCount.objects.get_or_create(user=user)
+    click_count = click_count_obj.click_count
+    context = {
+        'username': username,
+        'click_count': click_count
+    }
+    return render(request, 'mypage/kr/ranking.html', context)
+    
+def get_click_count(request, username):
+    user = User.objects.get(username=username)
+    click_count_obj, created = ClickCount.objects.get_or_create(user=user)
+    click_count = click_count_obj.click_count
+    return render(request, 'mypage/kr/click_count.html', {'click_count': click_count})
+@login_required
+def update_click_count(request, username):
+    if request.method == 'POST':
+        user = request.user
+        click_count_obj, created = ClickCount.objects.get_or_create(user=user)
+        click_count_obj.click_count += 1
+        click_count_obj.save()
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
 @login_required
 def mainpage(request, username):
     try:
@@ -16,8 +44,22 @@ def mainpage(request, username):
     context = {
         'user': user,
         'username' : username,
+        
     }
     return render(request, 'mypage/kr/mainpage.html', context)
+
+@login_required
+def mypage_eg(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return redirect('user_view')
+
+    context = {
+        'user': user,
+        'username' : username,
+    }
+    return render(request, 'mypage/eg/mainpage_eg.html', context)
 
 @login_required
 def inside_pumpkin(request, username):

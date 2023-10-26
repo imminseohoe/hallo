@@ -13,13 +13,23 @@ def choose_name(request):
         form = ChangeUsernameForm(request.POST)
         if form.is_valid():
             new_username = form.cleaned_data['name']
+            lang_choose = form.cleaned_data['choose_lang']
             try:
-                user = User.objects.get(username=request.user.username)
-                user.username = new_username
-                user.save()
+                user_profile = request.user.userprofile
+            except UserProfile.DoesNotExist:
+                user_profile = UserProfile.objects.create(user=request.user)
+
+            user_profile.language = lang_choose
+            user_profile.save()
+
+            user = User.objects.get(username=request.user.username)
+            user.username = new_username
+            user.save()
+
+            if lang_choose == "ko":
                 return redirect('mypage_kr', user)
-            except User.DoesNotExist:
-                return redirect('user_view')
+            else:
+                return redirect('mypage_eg', user)
     else:
         form = ChangeUsernameForm()
 

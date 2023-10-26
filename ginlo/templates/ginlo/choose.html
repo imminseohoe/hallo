@@ -1,6 +1,7 @@
 {% load static %}
 <html lang="en">
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -13,9 +14,8 @@
             height: 100vh;
             width: auto;
             margin: 0;
-          }
-          .choose{
             text-align: center;
+            font-family: 'Orbit', sans-serif;
           }
           .form{
             font-size: 1.5rem;
@@ -25,22 +25,17 @@
       <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
+  
   {% block content %}
-  <h2>이름 선택</h2>
-  <form class='choose' method="post" action="{% url 'choose_name' %}">
-    {% csrf_token %}  <!-- CSRF 보안 토큰을 추가합니다. -->
-    <input class='form' type="text" name="name" placeholder="이름을 입력하세요"><br>
-    <button type="submit">저장</button><br>
-    <label for="languageSelector"
-    style="color:white;
-    position: fixed;
-    top: 30px; 
-    right:10px";>Language</label>    
-                 <select>
-                 <option value="en">English</option>
-                 <option value="ko">한국어</option>
-                </select> 
-  </form>   
+
+
+  <h2>make your nickname</h2>
+  <form action="{% url 'choose_name' %}" method="POST">
+    {% csrf_token %}  
+    {{ form.as_p }}
+    <button type="submit">저장</button>
+  </form>
+
 {% endblock %}
 </body>
 </html>

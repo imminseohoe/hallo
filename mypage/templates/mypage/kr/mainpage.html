@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <style>
         a {
         text-decoration: none;
@@ -16,6 +16,10 @@
         width: auto;
         margin: 0;
         }
+		#ee{
+			color : white;
+			size : 100px
+		}
     
    </style>
     <script src ="{% static 'js/kr/main.js' %}"></script>
@@ -26,15 +30,17 @@
     <link rel="stylesheet" href="{% static 'css/kr/mainPage.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
-        function showPopup() { window.open("{% url 'ranking' %}", "a", "width=300, heig500, left=100, top=50"); }
+		function showPopup() {
+			var url = "{% url 'ranking_kr' username=username %}";
+			window.open(url, "a", "width=300, height=500, left=100, top=50");
+		}
     </script>
-  </head>
+</head>
 <body>
-
      <span id="페이지">🎃{{ username }} 님에게<br >
         n개의 사탕이 전달됐어요
-     <button id="share"><a href="{% url 'inside_pumpkin' username=username %}" style="text-decoration: none;">호박내부보기</a></button>
-     <button id="interior">공유하러가기</button>
+     <button id="interior"><a href="{% url 'inside_pumpkin' username=username %}" style="text-decoration: none;">호박내부보기</a></button>
+     <button id="share">공유하러가기</button>
 
      <button id="write" onclick="showPopup();">랭킹</button>
      </span>
