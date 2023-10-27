@@ -21,14 +21,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inside</title>
-    <link href="{% static 'css/kr/inside_pumpkin.css' %}" rel="stylesheet">
+    <link href="{% static 'css/eg/inside_pumpkin.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>{{username}}'s pumpkin</h1>
-    <span class="letter"></span><br>
-    <button id="friend"><a href="{% url 'write' username=username %}" style="text-decoration: none;">편지쓰기</a></button>
-    <img id="pumpkin" src = "{% static 'img/table_pumpkin.png' %}"  alt="pumpkin">
+    <a class="letter" href="{% url 'mypage_eg' username=username %}">back tp main page</a><br>
+    <div class="ppp" >
+        page:
+        {% for page in range %}
+            <a href="/mypage/kr/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
+        {% endfor %}
+    </div>
     <ul>
         {% for article in article_list %}
         <li>

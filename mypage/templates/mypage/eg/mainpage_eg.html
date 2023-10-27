@@ -33,8 +33,8 @@
 
      <span id="페이지">🎃n candies were sent<br >
         to {{ username }}
-     <button id="share"><a href="{% url 'inside_pumpkin' username=username %}" style="text-decoration: none;">inside pumpkin</a></button>
-     <button id="interior">share with friends</button>
+     <button id="share">share with friends</button>
+     <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none;">inside pumpkin</a></button>
 
      <button id="write" onclick="showPopup();">ranking</button>
      </span>

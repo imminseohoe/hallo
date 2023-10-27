@@ -38,10 +38,9 @@
 </head>
 <body>
      <span id="페이지">🎃{{ username }} 님에게<br >
-        n개의 사탕이 전달됐어요
-     <button id="interior"><a href="{% url 'inside_pumpkin' username=username %}" style="text-decoration: none;">호박내부보기</a></button>
+        {{candy}}개의 사탕이 전달됐어요
+     <button id="interior"><a href="{% url 'inside_pumpkin' username=username page_num=1 %}" style="text-decoration: none;">호박내부보기</a></button>
      <button id="share">공유하러가기</button>
-
      <button id="write" onclick="showPopup();">랭킹</button>
      </span>
     <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}" onclick='myFunction()' alt="pumpkin">

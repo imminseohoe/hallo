@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+    <script src="{% static 'js/kr/inside.js' %}"></script>
+    <link rel="icon" type="image/png" href="{% static 'img/pumpkin_icon.png' %}">
     <style>
         #candy {
             width: 150px;
@@ -12,10 +13,22 @@
             left: 25%;
             transform: translate(-50%, -50%);
         }
-        ul {
-            list-style-type: none; 
-            padding: 0; 
+        div{
+            color: white;
         }
+        ul {
+
+            list-style: none;
+            padding: 0;
+        }
+    
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
         body {
             background-image: url("{% static 'img/inside_pumpkin_background.png' %}");
             background-size: cover;
@@ -36,45 +49,46 @@
             font-family: 'Cute Font', cursive;
             border-radius: 15px;
         }
-        
+
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inside</title>
-    <link href="{% static 'css/kr/inside_pumpkin.css' %}" rel="stylesheet">
+    <link href="{% static 'css/kr/inside_Pumpkin.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>{{username}}님의 호박안</h1>
-    <span class="letter">편지공개까지 n 시간</span><br>
-    <button id="friend"><a href="{% url 'write' username=username %}" style="text-decoration: none;">편지쓰기</a></button>
-    <img id="pumpkin" src = "{% static 'img/table_pumpkin.png' %}"  alt="pumpkin">
+    <h1>{{ username }}님의 호박안</h1>
+    <a class="letter" href="{% url 'mypage_kr' username=username %}">돌아가기</a><br>
+
+    <div class="ppp" >
+        page:
+        {% for page in range %}
+            <a href="/mypage/kr/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
+        {% endfor %}
+    </div>
     <ul>
         {% for article in article_list %}
-        <li >
-            {{ article.name }} 
-            <br>
-            <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
-            <script>
-                var candyImages = [
-                    "{% static 'img/candy/candy1.png' %}",
-                    "{% static 'img/candy/candy2.png' %}",
-                    "{% static 'img/candy/candy3.png' %}",
-                    "{% static 'img/candy/candy4.png' %}"
-                ];
-    
-                var randomIndex = Math.floor(Math.random() * candyImages.length);
-                var randomImage = candyImages[randomIndex];
-    
+            <li>
+                from:{{ article.name }} 
+                <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
+                <script>
+                    var candyImages = [
+                        "{% static 'img/candy/candy1.png' %}",
+                        "{% static 'img/candy/candy2.png' %}",
+                        "{% static 'img/candy/candy3.png' %}",
+                        "{% static 'img/candy/candy4.png' %}"
+                    ];
 
-        </li>
+                    var randomIndex = Math.floor(Math.random() * candyImages.length);
+                    var randomImage = candyImages[randomIndex];
 
+                    var imageElement = document.querySelector("li:last-child .one_letter");
+                    imageElement.src = randomImage;
+                </script>
+                <br>
+            </li>
         {% endfor %}
     </ul>
-    <span class="span">
-        <button class="left"><</button>
-        <b class="center">1/2</b>
-        <button class="right">></button>
-    </span>
 </body>
 </html>

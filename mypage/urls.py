@@ -9,9 +9,11 @@ urlpatterns = [
     path('<str:username>/ranking/', views.ranking_kr, name='ranking_kr'),
     path('<str:username>/click_count/', views.get_click_count, name='click_count'),
     path('<str:username>/', views.mainpage, name='mypage_kr'),
-    path('<str:username>/inside_pumpkin/', views.inside_pumpkin, name='inside_pumpkin'),
+    path('kr/<str:username>/inside_pumpkin/<int:page_num>/', views.inside_pumpkin, name='inside_pumpkin'),
     path('<str:username>/write/', views.write, name='write'),
-    path('<str:username>/view/<int:num>/', views.user_view, name='user_view'),
+    path('<str:username>/inside_pumpkin/view/<int:num>/', views.user_view, name='user_view'),
     path('<str:username>/list/', views.user_list, name='user_list'),
+    path('eg/<str:username>/inside_pumpkin/<int:page_num>/  ', views.inside_pumpkin_eg, name='inside_pumpkin_eg'),
+    
     path('<str:username>/eg/', views.mypage_eg, name='mypage_eg'),
 ]

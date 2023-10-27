@@ -11,15 +11,40 @@ a {
 	bottom: 1%;
 	right: 1%;
 }
-@media screen and (max-width:769px){
-    #pumpkin{
-       width: 15rem;
-	   height: auto;
+
+
+@media screen and (max-width:2560px){
+    .one_letter{
+        width:100px;
+        height: auto;
     }
 }
+@media screen and (max-width:1025px){
+    .one_letter{
+        width:100px;
+        height: auto;
+    }
+}
+@media screen and (max-width:769px){
+    .one_letter{
+        width:100px;
+        height: auto;
+    }
+
+}
+@media screen and (max-width:600px){
+    .one_letter{
+        width:100px;
+        height: auto;
+
+    }
+
+}
 @media screen and (max-width:426px){
-    #pumpkin{
-       width: 10rem;
-	   height: auto;
+
+    .one_letter{
+        width:75px;
+        height: auto;
+
     }
 }

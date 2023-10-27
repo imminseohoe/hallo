@@ -22,7 +22,8 @@
             font-family: 'Orbit', sans-serif;
           }
   </style>
-      <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+  <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
 </head>
 <body>
   
@@ -33,7 +34,7 @@
   <form action="{% url 'choose_name' %}" method="POST">
     {% csrf_token %}  
     {{ form.as_p }}
-    <button type="submit">저장</button>
+    <button type="submit">submit</button>
   </form>
 
 {% endblock %}

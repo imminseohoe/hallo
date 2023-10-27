@@ -2,123 +2,66 @@
 <html>
 <head>
   <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/kr/popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/kr/popupp.css' %}">
   <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+  <script>
+    function change(arg)
+    {
+    var t1 = document.getElementById("table");
+    var t2 = document.getElementById("tablehouse");
+    
+    if(arg == 1)
+    {
+    t1.style.display="block";
+    t2.style.display="none";
+    }
+    else
+    {
+    t2.style.display="block";
+    t1.style.display="none";
+    }
+    }
+    </script>
 </head>
 <body>
-<table class="table">
-  <tr>
-    <th scope="col">랭킹</td>
-    <th scope="col">아이디</td>
-    <th scope="col">호박 클릭수</td>
-  </tr>
-  <tr class="my">
-    <th scope="col">1</td>
-    <th scope="col">{{username}}</td>
-    <th scope="col">{{ click_count }}</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>준이Vv</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>11</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>13</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>14</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>15</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>16</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>17</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>18</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>19</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>20</td>
-    <td>임민서회</td>
-    <td>3</td>
-  </tr>
-
-</table>
-</table>
-</body>
-</html>
+  <button class="solo" onclick="change(1)">Personal ranking</button>
+  <button class="house" onclick="change(2)">House ranking</button>
+  <table id="table">
+    <tr>
+      <th scope="col">ranking</th>
+      <th scope="col">id</th>
+      <th scope="col">clicks</th>
+    </tr>
+    <tr class="my">
+      <th scope="col">-</th>
+      <th scope="col">{{ username }}</th>
+      <th scope="col">{{ click_count }}</th>
+    </tr>
+    {% for click_count_obj in top_click_counts %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ click_count_obj.user.username }}</td>
+      <td>{{ click_count_obj.click_count }}</td>
+    </tr>
+  {% endfor %}
+  <table id="tablehouse">
+    <tr>
+      <th scope="col">ranking</th>
+      <th scope="col">house</th>
+      <th scope="col">clicks</th>
+    </tr>
+    <tr class="my">
+      <th scope="col">1</th>
+      <th id="userhouse" scope="col">{{ user.house.name }}</th>
+      <th scope="col">{{ user.house.click_count }}</th>
+    </tr>
+    {% for house_click_count_obj in top_house_click_counts %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ house_click_count_obj.house.name }}</td>
+      <td>{{ house_click_count_obj.total_clicks }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </body>
+  </html>

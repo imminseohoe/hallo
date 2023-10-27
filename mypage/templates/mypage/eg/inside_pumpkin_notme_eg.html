@@ -25,9 +25,16 @@
 </head>
 <body>
     <h1>{{username}}'s pumpkin</h1>
-    <img id="pumpkin" src = "{% static 'img/table_pumpkin.png' %}"  alt="pumpkin">
+    <a class="letter" href="{% url 'mypage_kr' username=username %}">back tp main page</a><br>
+    <button id="friend"><a href="{% url 'write' username=username %}" style="text-decoration: none;">write a letter</a></button>
+    <div class="ppp" >
+        page:
+        {% for page in range %}
+            <a href="/mypage/kr/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
+        {% endfor %}
+    </div>
     <ul>
-        {% for article in article_list %}
+        {% for article in article_listt %}
         <li>
         {{ article.name }} 
         <br>

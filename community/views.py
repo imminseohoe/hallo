@@ -17,11 +17,3 @@ def molo(request):
 
     except UserProfile.DoesNotExist:
         return redirect('user_view')
-def ranking_kr(request):
-    user = User.objects.get(username=request.user.username)
-    cntext={
-        'username': user.username
-        
-    }
-    
-    return render(request, 'ranking.html', cntext)
