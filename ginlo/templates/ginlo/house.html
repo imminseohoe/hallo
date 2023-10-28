@@ -1,0 +1,40 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>House</title>
+    <link rel="stylesheet" href="{% static 'css/kr/house.css' %}" >
+</head>
+<body>
+    <button class="choose">choose your house</button>
+    <form id="house-form" method="post">
+        {% csrf_token %}
+        <button class="Poseidon" type="button" name="house" value="Poseidon"><img class="포세이돈" src="{% static 'img/pos.png' %}"><br><span>Poseidon</span></button>
+        <button class="Athena" type="button" name="house" value="Athena"><img class="아테나" src="{% static 'img/ath.png' %}"><br><span>Athena</span></button>
+        <button class="Apollo" type="button" name="house" value="Apollo"><img class="아폴로" src="{% static 'img/apolo.png' %}"><br><span>Apollo</span></button>
+        <button class="Artemis" type="button" name="house" value="Artemis"><img class="아르테미스" src="{% static 'img/art.png' %}"><br><span>Artemis</span></button>
+    </form>
+    
+
+    <script>
+
+        var houseButtons = document.querySelectorAll("button[name='house']");
+        houseButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+
+                houseButtons.forEach(function(btn) {
+                    btn.classList.remove("selected");
+                });
+                this.classList.add("selected");
+
+                var hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "house";
+                hiddenInput.value = this.value;
+                document.getElementById("house-form").appendChild(hiddenInput);
+
+                document.getElementById("house-form").submit();
+            });
+        });
+    </script>
+</body>
+</html>

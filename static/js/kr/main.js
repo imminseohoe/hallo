@@ -25,12 +25,8 @@ function myFunction() {
     }
   });
 
-  if (click >= 100) {
-    document.querySelector(".speech-bubble").innerText = '나삐짐';
-    ttt = false;
-  } else if (click >= 30 && ttt) {
-    document.querySelector(".speech-bubble").innerText = '그만 때려.. 아파..';
-    tt = false;
+  if (click >= 30) {
+    document.querySelector(".speech-bubble").innerText = "떄리지마..";
   } else {
     click += 1;
     var index = Math.floor(Math.random() * 7);

@@ -3,7 +3,8 @@ from django.db import models
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    language = models.CharField(max_length=2, choices=[('en', 'English'), ('ko', '한국어')], default='en')
+    language = models.CharField(max_length=2, choices=[('en', 'English'), ('ko', '한국어')],default='eg')
+    house = models.CharField(max_length=100, null=True)  # null=True로 설정
 
 class Article(models.Model):
     name = models.CharField(max_length=10)
@@ -14,17 +15,11 @@ class Article(models.Model):
     def __str__(self):
         return self.name
 
-class House(models.Model):
-    name = models.CharField(max_length=100)
-    click_count = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.name
-
 class ClickCount(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    house = models.ForeignKey(House, on_delete=models.CASCADE,)
     click_count = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f"{self.user.username} - {self.house.name}"
+    house_click = models.IntegerField(default=0) 
+    apollo_click = models.IntegerField(default=0)
+    athena_click = models.IntegerField(default=0)
+    poseidon_click = models.IntegerField(default=0)
+    artemis_click = models.IntegerField(default=0)

@@ -1,0 +1,223 @@
+.Poseidon{
+    width: 50vw;
+    height: 46vh;
+    border: 0;
+    background-color: cornflowerblue;
+    font-family: 'Orbit', sans-serif;
+}
+.Athena{
+    width: 50vw;
+    height: 46vh;
+    position: absolute;
+    border: 0;
+    background-color: orangered;
+    font-family: 'Orbit', sans-serif;
+}
+.Apollo{
+    width: 50vw;
+    height: 46vh;
+    border: 0;
+    background-color: rgba(255, 255, 0, 0.668);
+    font-family: 'Orbit', sans-serif;
+}
+.Artemis{
+    width: 50vw;
+    height: 46vh;
+    position: absolute;
+    border: 0;
+    background-color: yellowgreen;
+    font-family: 'Orbit', sans-serif;
+}
+.choose{
+    text-align: center;
+    width:100vw;
+    height:5vh;
+    font-size: 2rem;
+    font-family: 'Cute Font', cursive;
+    border: 0;
+    background-color: transparent;
+}
+
+@media screen and (max-width:2560px){
+    .포세이돈{
+        width:200px;
+        height: auto;
+    }
+    .아테나{
+        width:200px;
+        height: auto;
+    }
+    .아폴로{
+        width:200px;
+        height: auto;
+    }
+    .아르테미스{
+        width:230px;
+        height: auto;
+    }
+    .Poseidon{
+        font-size: 5rem;
+    }
+    .Athena{
+        font-size: 5rem;
+    }
+    .Apollo{
+        font-size: 5rem;
+    }
+    .Artemis{
+        font-size: 5rem;
+    }
+    .choose{
+        font-size: 5rem;
+    }
+}
+@media screen and (max-width:1440px){
+    .포세이돈{
+        width:160px;
+        height: auto;
+    }
+    .아테나{
+        width:160px;
+        height: auto;
+    }
+    .아폴로{
+        width:160px;
+        height: auto;
+    }
+    .아르테미스{
+        width:180px;
+        height: auto;
+    }
+    .Poseidon{
+        font-size: 2rem;
+    }
+    .Athena{
+        font-size: 2rem;
+    }
+    .Apollo{
+        font-size: 2rem;
+    }
+    .Artemis{
+        font-size: 2rem;
+    }
+    .choose{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width:1024px){
+    .포세이돈{
+        width:140px;
+        height: auto;
+    }
+    .아테나{
+        width:140px;
+        height: auto;
+    }
+    .아폴로{
+        width:140px;
+        height: auto;
+    }
+    .아르테미스{
+        width:170px;
+        height: auto;
+    }
+    .Poseidon{
+        font-size: 2rem;
+    }
+    .Athena{
+        font-size: 2rem;
+    }
+    .Apollo{
+        font-size: 2rem;
+    }
+    .Artemis{
+        font-size: 2rem;
+    }
+    .choose{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:768px){
+    .포세이돈{
+        width:140px;
+        height: auto;
+    }
+    .아테나{
+        width:140px;
+        height: auto;
+    }
+    .아폴로{
+        width:140px;
+        height: auto;
+    }
+    .아르테미스{
+        width:170px;
+        height: auto;
+    }
+}
+@media screen and (max-width:425px){
+    .포세이돈{
+        width:120px;
+        height: auto;
+    }
+    .아테나{
+        width:120px;
+        height: auto;
+    }
+    .아폴로{
+        width:120px;
+        height: auto;
+    }
+    .아르테미스{
+        width:150px;
+        height: auto;
+    }
+}
+@media screen and (max-width:375px){
+    .포세이돈{
+        width:120px;
+        height: auto;
+    }
+    .아테나{
+        width:120px;
+        height: auto;
+    }
+    .아폴로{
+        width:120px;
+        height: auto;
+    }
+    .아르테미스{
+        width:150px;
+        height: auto;
+    }
+}
+@media screen and (max-width:320px){
+    .포세이돈{
+        width:100px;
+        height: auto;
+    }
+    .아테나{
+        width:100px;
+        height: auto;
+    }
+    .아폴로{
+        width:100px;
+        height: auto;
+    }
+    .아르테미스{
+        width:120px;
+        height: auto;
+    }
+    .Poseidon{
+        font-size: 1rem;
+    }
+    .Athena{
+        font-size: 1rem;
+    }
+    .Apollo{
+        font-size: 1rem;
+    }
+    .Artemis{
+        font-size: 1rem;
+    }
+}

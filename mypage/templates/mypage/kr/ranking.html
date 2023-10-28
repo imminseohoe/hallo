@@ -7,21 +7,21 @@
   <script>
     function change(arg)
     {
-    var t1 = document.getElementById("table");
-    var t2 = document.getElementById("tablehouse");
-    
-    if(arg == 1)
-    {
-    t1.style.display="block";
-    t2.style.display="none";
+      var t1 = document.getElementById("table");
+      var t2 = document.getElementById("tablehouse");
+      
+      if(arg == 1)
+      {
+        t1.style.display="block";
+        t2.style.display="none";
+      }
+      else
+      {
+        t2.style.display="block";
+        t1.style.display="none";
+      }
     }
-    else
-    {
-    t2.style.display="block";
-    t1.style.display="none";
-    }
-    }
-    </script>
+  </script>
 </head>
 <body>
   <button class="solo" onclick="change(1)">Personal ranking</button>
@@ -33,7 +33,7 @@
       <th scope="col">clicks</th>
     </tr>
     <tr class="my">
-      <th scope="col">-</th>
+      <th scope="col">{{ my_rank }}</th>
       <th scope="col">{{ username }}</th>
       <th scope="col">{{ click_count }}</th>
     </tr>
@@ -43,7 +43,8 @@
       <td>{{ click_count_obj.user.username }}</td>
       <td>{{ click_count_obj.click_count }}</td>
     </tr>
-  {% endfor %}
+    {% endfor %}
+  </table>
   <table id="tablehouse">
     <tr>
       <th scope="col">ranking</th>
@@ -51,17 +52,48 @@
       <th scope="col">clicks</th>
     </tr>
     <tr class="my">
-      <th scope="col">1</th>
-      <th id="userhouse" scope="col">{{ user.house.name }}</th>
-      <th scope="col">{{ user.house.click_count }}</th>
+      <th scope="col">
+        {% if user.userprofile.house %}
+            {{ my_house_rank }}
+        {% else %}
+            -
+        {% endif %}
+      </th>
+      <th scope="col" id="userhouse">
+        {% if user.userprofile.house %}
+          {{ user.userprofile.house }}
+        {% else %}
+            -
+        {% endif %}
+      </th>
+      <th scope="col">
+        {% if user.userprofile.house %}
+            {{ my_house_click_count }}
+        {% else %}
+            -
+        {% endif %}
+    </th>
     </tr>
-    {% for house_click_count_obj in top_house_click_counts %}
-    <tr>
-      <td>{{ forloop.counter }}</td>
-      <td>{{ house_click_count_obj.house.name }}</td>
-      <td>{{ house_click_count_obj.total_clicks }}</td>
+    <tr class="Poseidon">
+      <td>4</td>
+      <td id="forth">Poseidon</td>
+      <td>3</td>
     </tr>
-    {% endfor %}
+    <tr class="Athena">
+      <td>3</td>
+      <td>Athena</td>
+      <td>9</td>
+    </tr>
+    <tr class="Apollo">
+      <td>1</td>
+      <td>Apollo</td>
+      <td>73</td>
+    </tr>
+    <tr class="Artemis">
+      <td>2</td>
+      <td>Artemis</td>
+      <td>53</td>
+    </tr>
   </table>
-  </body>
-  </html>
+</body>
+</html>

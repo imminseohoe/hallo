@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src ="{% static 'js/eg/main.js' %}"></script>
    <style>
         a {
         text-decoration: none;
@@ -18,7 +19,6 @@
         }
     
    </style>
-    <script src ="{% static 'js/eg/main_page.js' %}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>trick or letter</title>
@@ -26,19 +26,18 @@
     <link rel="stylesheet" href="{% static 'css/kr/mainPage.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
-        function showPopup() { window.open("{% url 'ranking_kr' %}", "a", "width=300, heig500, left=100, top=50"); }
+        function showPopup() { window.open("{% url 'ranking_kr' username=username%}", "a", "width=300, heig500, left=100, top=50"); }
     </script>
-  </head>
+</head>
 <body>
-
-     <span id="페이지">🎃n candies were sent<br >
+     <span id="페이지">🎃{{candy}} candies were sent<br >
         to {{ username }}
      <button id="share">share with friends</button>
      <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none;">inside pumpkin</a></button>
 
      <button id="write" onclick="showPopup();">ranking</button>
      </span>
-    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}" onclick='myfunction()' alt="pumpkin">
+    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}" onclick='myFunction()' alt="pumpkin">
     <span class="speech-bubble">hello</span>   
 
 

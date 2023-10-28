@@ -14,6 +14,5 @@ urlpatterns = [
     path('<str:username>/inside_pumpkin/view/<int:num>/', views.user_view, name='user_view'),
     path('<str:username>/list/', views.user_list, name='user_list'),
     path('eg/<str:username>/inside_pumpkin/<int:page_num>/  ', views.inside_pumpkin_eg, name='inside_pumpkin_eg'),
-    
     path('<str:username>/eg/', views.mypage_eg, name='mypage_eg'),
 ]

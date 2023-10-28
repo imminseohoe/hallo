@@ -1,27 +1,47 @@
 .solo{
-    width:50vw;
-  }
-  .house{
-    width:50vw;
-    position: absolute;
-  }
-  #table{ border-collapse : collapse; 
-          width: 100vw;}  /*이중선 제거*/
-  th,td{
-       width: 1000px;
-       height: 50px;
-       text-align: center;
-       
-       vertical-align: top;	/* 위 */
-       vertical-align: bottom;   /* 아래 */
-       vertical-align: middle;   /* 가운데 */
-     }
-  .my{
-      background-color: yellow;
-  }
-  #tablehouse{ border-collapse : collapse; 
-    width: 100vw;
-    display:none;}  /*이중선 제거*/
-  tbody{
-    width: 100vw;
-  }
+  width:50vw;
+}
+.house{
+  width:50vw;
+  position: absolute;
+}
+#table{ border-collapse : collapse; 
+        width: 100vw;}  /*이중선 제거*/
+        
+th,td{
+     width: 1000px;
+     height: 50px;
+     text-align: center;
+     
+     vertical-align: top; /* 위 */
+     vertical-align: bottom;   /* 아래 */
+     vertical-align: middle;   /* 가운데 */
+   }
+.my{
+    background-color: rgba(255, 255, 0, 0.668);
+    border: 3px solid;
+}
+#tablehouse{ border-collapse : collapse; 
+  width: 100vw;
+  display:none;}  /*이중선 제거*/
+tbody{
+  width: 100vw;
+  position: absolute;
+  left: 0;
+}
+.Artemis{
+  background-color: greenyellow;
+  border: 2px solid;
+}
+.Apollo{
+  background-color: rgba(255, 255, 0, 0.668);
+  border: 2px solid;
+}
+.Athena{
+  background-color: orangered;
+  border: 2px solid;
+}
+.Poseidon{
+  background-color: cornflowerblue;
+  border: 2px solid;
+}
