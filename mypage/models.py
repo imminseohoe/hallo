@@ -4,7 +4,7 @@ from django.db import models
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     language = models.CharField(max_length=2, choices=[('en', 'English'), ('ko', '한국어')],default='eg')
-    house = models.CharField(max_length=100, null=True)  # null=True로 설정
+    house = models.CharField(max_length=100, null=True)  
 
 class Article(models.Model):
     name = models.CharField(max_length=10)
@@ -18,8 +18,17 @@ class Article(models.Model):
 class ClickCount(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     click_count = models.IntegerField(default=0)
-    house_click = models.IntegerField(default=0) 
+
+class HouseClick(models.Model):
     apollo_click = models.IntegerField(default=0)
     athena_click = models.IntegerField(default=0)
     poseidon_click = models.IntegerField(default=0)
     artemis_click = models.IntegerField(default=0)
+
+    @classmethod
+    def get_or_create(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+    def __str__(self):
+        return "House Click Counts"

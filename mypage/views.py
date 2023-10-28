@@ -1,12 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from mypage.models import UserProfile, Article, ClickCount
+from mypage.models import UserProfile, Article, ClickCount,HouseClick
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect
 from mypage.forms import Form
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-
 
 @login_required
 def ranking_kr(request, username):
@@ -15,25 +14,37 @@ def ranking_kr(request, username):
     click_count_obj, created = ClickCount.objects.get_or_create(user=user)
     click_count = click_count_obj.click_count
     my_rank = ClickCount.objects.filter(click_count__gt=click_count).count() + 1
-    house_ranks = ClickCount.objects.filter(house_click__gt=0).order_by('-house_click')
-    my_house_rank = house_ranks.filter(user__userprofile__house=user.userprofile.house).count() + 1
-    if user.userprofile.house == 'Poseidon':
-        my_house_click_count = click_count_obj.poseidon_click
-    elif user.userprofile.house == 'Athena':
-        my_house_click_count = click_count_obj.athena_click
-    elif user.userprofile.house == 'Apollo':
-        my_house_click_count = click_count_obj.apollo_click
-    elif user.userprofile.house == 'Artemis':
-        my_house_click_count = click_count_obj.artemis_click
-    
+    house_click = HouseClick.get_or_create()
+
+    user_house = user.userprofile.house if user.userprofile and user.userprofile.house else ""
+    house_attr = f"{user_house.lower()}_click" if user_house else ""
+    my_house_click_count = getattr(house_click, house_attr, 0)
+
+    house_rankings = {
+        'Poseidon': {
+            'click_count': house_click.poseidon_click
+        },
+        'Athena': {
+            'click_count': house_click.athena_click
+        },
+        'Apollo': {
+            'click_count': house_click.apollo_click
+        },
+        'Artemis': {
+            'click_count': house_click.artemis_click
+        }
+    }
 
     context = {
         'username': username,
         'click_count': click_count,
         'top_click_counts': top_click_counts,
         'my_rank': my_rank,
-        'my_house_rank': my_house_rank,
         'my_house_click_count': my_house_click_count,
+        'pos_click': house_rankings['Poseidon']['click_count'],
+        'att_click': house_rankings['Athena']['click_count'],
+        'app_click': house_rankings['Apollo']['click_count'],
+        'arr_click': house_rankings['Artemis']['click_count'],
     }
     return render(request, 'mypage/kr/ranking.html', context)
 
@@ -48,15 +59,17 @@ def update_click_count(request, username):
         user = request.user
         click_count_obj, created = ClickCount.objects.get_or_create(user=user)
         click_count_obj.click_count += 1
+        house_click = HouseClick.objects.first()
         if user.userprofile.house == 'Poseidon':
-            click_count_obj.poseidon_click += 1
+            house_click.poseidon_click += 1
         elif user.userprofile.house == 'Athena':
-            click_count_obj.athena_click += 1
+            house_click.athena_click += 1
         elif user.userprofile.house == 'Apollo':
-            click_count_obj.apollo_click += 1
+            house_click.apollo_click += 1
         elif user.userprofile.house == 'Artemis':
-            click_count_obj.artemis_click += 1
+            house_click.artemis_click += 1
         click_count_obj.save()
+        house_click.save()
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 @login_required
@@ -84,6 +97,7 @@ def mypage_eg(request, username):
         return redirect('user_view')
     users = User.objects.get(username=username)
     article_list = Article.objects.filter(user=users)
+
     
     context = {
         'user': user,

@@ -47,18 +47,10 @@
   </table>
   <table id="tablehouse">
     <tr>
-      <th scope="col">ranking</th>
       <th scope="col">house</th>
       <th scope="col">clicks</th>
     </tr>
-    <tr class="my">
-      <th scope="col">
-        {% if user.userprofile.house %}
-            {{ my_house_rank }}
-        {% else %}
-            -
-        {% endif %}
-      </th>
+    <tr class="myhouse">
       <th scope="col" id="userhouse">
         {% if user.userprofile.house %}
           {{ user.userprofile.house }}
@@ -75,24 +67,20 @@
     </th>
     </tr>
     <tr class="Poseidon">
-      <td>4</td>
       <td id="forth">Poseidon</td>
-      <td>3</td>
+      <td>{{pos_click}}</td>
     </tr>
     <tr class="Athena">
-      <td>3</td>
       <td>Athena</td>
-      <td>9</td>
+      <td>{{att_click}}</td>
     </tr>
     <tr class="Apollo">
-      <td>1</td>
       <td>Apollo</td>
-      <td>73</td>
+      <td>{{app_click}}</td>
     </tr>
     <tr class="Artemis">
-      <td>2</td>
       <td>Artemis</td>
-      <td>53</td>
+      <td>{{arr_clik}}</td>
     </tr>
   </table>
 </body>

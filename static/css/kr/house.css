@@ -37,6 +37,10 @@
     border: 0;
     background-color: transparent;
 }
+.myhouse{
+  background-color: cornsilk;
+  border: 3px solid;
+}
 
 @media screen and (max-width:2560px){
     .포세이돈{
