@@ -20,20 +20,16 @@ def ranking_kr(request, username):
     house_attr = f"{user_house.lower()}_click" if user_house else ""
     my_house_click_count = getattr(house_click, house_attr, 0)
 
-    house_rankings = {
-        'Poseidon': {
-            'click_count': house_click.poseidon_click
-        },
-        'Athena': {
-            'click_count': house_click.athena_click
-        },
-        'Apollo': {
-            'click_count': house_click.apollo_click
-        },
-        'Artemis': {
-            'click_count': house_click.artemis_click
-        }
-    }
+
+
+    pos_click  = house_click.poseidon_click
+
+    att_click= house_click.athena_click
+
+    app_click= house_click.apollo_click
+
+    arr_click= house_click.artemis_click
+
 
     context = {
         'username': username,
@@ -41,10 +37,10 @@ def ranking_kr(request, username):
         'top_click_counts': top_click_counts,
         'my_rank': my_rank,
         'my_house_click_count': my_house_click_count,
-        'pos_click': house_rankings['Poseidon']['click_count'],
-        'att_click': house_rankings['Athena']['click_count'],
-        'app_click': house_rankings['Apollo']['click_count'],
-        'arr_click': house_rankings['Artemis']['click_count'],
+        'pos_click': pos_click,
+        'att_click': att_click,
+        'app_click': app_click,
+        'arr_click': arr_click,
     }
     return render(request, 'mypage/kr/ranking.html', context)
 
