@@ -70,7 +70,11 @@ def update_click_count(request, username):
     return JsonResponse({'success': False})
 @login_required
 def mainpage(request, username):
-    
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+    language = profile.language
+    if language == 'en':
+        return redirect('mypage_eg', username)
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -87,6 +91,11 @@ def mainpage(request, username):
 
 @login_required
 def mypage_eg(request, username):
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+    language = profile.language
+    if language == 'ko':
+        return redirect('mypage_kr', username)
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:

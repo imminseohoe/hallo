@@ -7,7 +7,18 @@
     <title>view</title>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
     <style>
+        .pumpkin{
+            background-color: white;
+            border-radius: 10px;
+            position:relative;
+            top:20px;
+        }
         body {
             background-image: url("{% static 'img/background_letter.jpg' %}");
             background-size: cover;
@@ -39,6 +50,6 @@
 <body>
     <a class="a">From {{article.name}}</a>
     <br>
-    <b class="b">{{article.contents}}</b>
+    <b class="b">{{article.contents}}<br></b>   <button class="pumpkin"  onclick="goBack()">back to pumpkin</button>
 </body>
 </html>

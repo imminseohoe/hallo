@@ -4,10 +4,30 @@
 <head>
     <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
     <style>
-        ul {
-            list-style-type: none; 
-            padding: 0; 
+        #candy {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            bottom: 25%;
+            left: 25%;
+            transform: translate(-50%, -50%);
         }
+        div{
+            color: white;
+        }
+        ul {
+
+            list-style: none;
+            padding: 0;
+        }
+    
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
         body {
             background-image: url("{% static 'img/inside_pumpkin_background.png' %}");
             background-size: cover;
@@ -17,7 +37,20 @@
             width: auto;
             margin: 0;
         }
+        .span{
+            position: fixed;
+            bottom: 1px;
+            left:50%;
+            transform:translate(-50%,-50%)
+        }
+        #friend{
+            font-size: 2.5rem;
+            font-family: 'Cute Font', cursive;
+            border-radius: 15px;
+        }
+
     </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inside</title>
@@ -30,7 +63,7 @@
     <div class="ppp" >
         page:
         {% for page in range %}
-            <a href="/mypage/kr/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
+            <a href="/mypage/eg/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
         {% endfor %}
     </div>
     <ul>
@@ -47,11 +80,9 @@
             "{% static 'img/candy/candy4.png' %}"
             ];
 
-            // 랜덤 사탕 이미지 선택
             var randomIndex = Math.floor(Math.random() * candyImages.length);
             var randomImage = candyImages[randomIndex];
 
-            // 이미지 요소에 랜덤 이미지 URL 설정
             var imageElement = document.querySelector("li:last-child .one_letter");
             imageElement.src = randomImage;
         </script>
