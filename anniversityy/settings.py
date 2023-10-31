@@ -2,7 +2,7 @@
 import sys
 import os
 from pathlib import Path
-
+from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-
+    'corsheaders',
     
     "django.contrib.sites",
     "allauth",
@@ -50,6 +50,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,17 +86,25 @@ WSGI_APPLICATION = 'anniversityy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(var_name)
+        raise ImproperlyConfigured(error_msg)
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'iloveshushu$default',
-            'USER': 'iloveshushu',
-            'PASSWORD': 'imminseohoe080926^^',
-            'HOST': 'iloveshushu.mysql.pythonanywhere-services.com',
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': get_env_variable('DATABASE'),
+        'USER': get_env_variable('DB_USER'),
+        'PASSWORD': get_env_variable('DB_PASSWORD'),
+        'HOST': get_env_variable('DB_HOST'),
+        'PORT': get_env_variable('DB_PORT'),
+        'OPTIONS':{
+            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -115,11 +125,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'anniversityy/static'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     os.path.join(BASE_DIR, 'static', 'mypage','community', 'ginlo')
 ]
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
