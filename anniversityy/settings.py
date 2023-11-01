@@ -87,8 +87,8 @@ DATABASES = {
             'NAME': 'anniversityy',
             'USER': 'root',
             'PASSWORD': 'iloveshushu080926^^',
-            'HOST': 'localhost',
-            'PORT': '',
+            'HOST': 'mariadb',
+            'PORT': '3306',
         }
     }
 
