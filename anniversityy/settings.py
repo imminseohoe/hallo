@@ -1,25 +1,22 @@
 
 import sys
-import os,json
+import os
 from pathlib import Path
-from django.core.exceptions import ImproperlyConfigured
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import pymysql
-pymysql.install_as_MySQLdb()
-from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','django-insecure-)cjjhh)(iji$8g@jf(89h0697#y*fo@3l66m=fqjiv0@)s&=q+')
+SECRET_KEY = 'django-insecure-)cjjhh)(iji$8g@jf(89h0697#y*fo@3l66m=fqjiv0@)s&=q+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -32,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'corsheaders',
+
     
     "django.contrib.sites",
     "allauth",
@@ -51,8 +48,6 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +56,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'anniversityy.urls'
@@ -87,15 +81,17 @@ WSGI_APPLICATION = 'anniversityy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'iloveshushu$default',
-            'USER': 'iloveshushu',
-            'PASSWORD': 'imminseohoe080926^^',
-            'HOST': '',
+            'NAME': 'anniversityy',
+            'USER': 'root',
+            'PASSWORD': 'iloveshushu080926^^',
+            'HOST': 'localhost',
+            'PORT': '',
         }
-}
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -110,18 +106,19 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    os.path.join(BASE_DIR, 'static', 'mypage','community', 'ginlo')
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+        os.path.join(BASE_DIR, 'static', 'mypage','community')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -152,8 +149,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     
 )
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/ginlo/choose_name'
 LOGIN_URL = '/ginlo'
