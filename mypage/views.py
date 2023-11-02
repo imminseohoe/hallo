@@ -71,7 +71,7 @@ def update_click_count(request, username):
 @login_required
 def mainpage(request, username):
     user = request.user
-    profile = UserProfile.objects.get(user=user)
+    profile = UserProfile.objects.get(user=username)
     language = profile.language
     if language == 'en':
         return redirect('mypage_eg', username)
@@ -199,7 +199,7 @@ def write(request, username):
 @login_required
 def user_list(request, username):
     user = User.objects.get(username=username)
-    article_list = Article.objects.filter(user=user)
+    article_list = Article.objects.filter(user=username)
     return render(request, 'list.html', {'article_list': article_list})
 
 @login_required
