@@ -71,7 +71,7 @@ def update_click_count(request, username):
 @login_required
 def mainpage(request, username):
     user = request.user
-    profile = UserProfile.objects.get(user=username)
+    profile = UserProfile.objects.get(user=user)
     language = profile.language
     if language == 'en':
         return redirect('mypage_eg', username)
