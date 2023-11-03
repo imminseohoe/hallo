@@ -77,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'anniversityy.wsgi.application'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -118,7 +118,7 @@ if DEBUG:
         os.path.join(BASE_DIR, 'static', 'mypage','community')
     ]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
