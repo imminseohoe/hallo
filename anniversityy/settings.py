@@ -118,7 +118,7 @@ if DEBUG:
         os.path.join(BASE_DIR, 'static', 'mypage','community')
     ]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
