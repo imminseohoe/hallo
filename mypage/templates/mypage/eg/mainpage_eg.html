@@ -5,7 +5,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src ="{% static 'js/eg/main.js' %}"></script>
    <style>
-    #share{
+    #ll{
         color: white;
       }
     #페이지{
@@ -334,7 +334,7 @@
 <body>
      <span id="페이지">🎃{{candy}} candies were sent<br >
         to {{ username }}
-     <button id="share"><a href="#" onclick="clip(); return false;">copy the link</a></button>
+     <button id="share"><a id="ll"href="#" onclick="clip(); return false;">copy the link</a></button>
      <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none;">inside pumpkin</a></button>
 
      <button id="write" onclick="showPopup();">ranking</button>
