@@ -67,28 +67,25 @@
     </div>
     <ul>
         {% for article in article_list %}
-        <li>
-        {{ article.name }} 
-        <br>
-        <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
-        <script>
-            var candyImages = [
-            "{% static 'img/candy/candy1.png' %}",
-            "{% static 'img/candy/candy2.png' %}",
-            "{% static 'img/candy/candy3.png' %}",
-            "{% static 'img/candy/candy3.png' %}"
-            ];
+            <li>
+                from:{{ article.name }} 
+                <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
+                <script>
+                    var candyImages = [
+                        "{% static 'img/candy/candy1.png' %}",
+                        "{% static 'img/candy/candy2.png' %}",
+                        "{% static 'img/candy/candy3.png' %}",
+                        "{% static 'img/candy/candy4.png' %}"
+                    ];
 
+                    var randomIndex = Math.floor(Math.random() * candyImages.length);
+                    var randomImage = candyImages[randomIndex];
 
-            var randomIndex = Math.floor(Math.random() * candyImages.length);
-            var randomImage = candyImages[randomIndex];
-
-
-            var imageElement = document.querySelector("li:last-child .one_letter");
-            imageElement.src = randomImage;
-        </script>
-
-        </li>
+                    var imageElement = document.querySelector("li:last-child .one_letter");
+                    imageElement.src = randomImage;
+                </script>
+                <br>
+            </li>
         {% endfor %}
     </ul>
 </body>

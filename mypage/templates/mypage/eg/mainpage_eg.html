@@ -5,6 +5,293 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src ="{% static 'js/eg/main.js' %}"></script>
    <style>
+    #페이지{
+        color:white;
+        font-size: 4.5rem;
+        text-align:left;
+        font-family: 'Orbit', sans-serif;
+        word-break: keep-all;
+    
+    }
+    #pumpkin{
+        position:absolute;
+        width: 30rem;
+        max-width:100%;
+        height: auto;
+    }
+    
+    #share{
+        position: absolute;
+        left:2px;
+        bottom:-3rem;
+        font-size: 1.5rem;
+        border:1px solid;
+        color:white;
+        background-color: black;
+        font-family: 'Cute Font', cursive;
+        border-radius: 15px;
+    }
+    #interior{
+        position:absolute;
+        left:2px;
+        bottom:-6rem;
+        font-size:1.5rem;
+        border:1px solid;
+        color:black;
+        background-color: rgb(255, 140, 0);
+        font-family: 'Cute Font', cursive;
+        border-radius: 15px;
+    }
+    #write{
+        position: absolute;
+        left: 2px;
+        bottom: -9rem;
+        font-size: 1.5rem;
+        border: 1px solid;
+        font-family: 'Cute Font', cursive;
+        border-radius: 15px;
+    
+    }
+    #share:active{
+        color:black;
+        background-color: white;
+    }
+    #interior:active{
+        color:white;
+        background-color: rgb(160, 88, 0);
+    }
+    #write:active{
+        color:black;
+        background-color: rgb(196, 193, 193);
+    }
+    .speech-bubble {
+        position: absolute;
+        bottom:40%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background: #ffffff;
+        border-radius: .4em;
+        font-size: 3rem;
+        font-family: 'Black And White Picture', cursive;
+        word-break: keep-all;
+    }
+    .speech-bubble:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 0.781em solid transparent;
+        border-top-color: #ffffff;
+        border-bottom: 0;
+        border-right: 0;
+        margin-left: -0.391em;
+        margin-bottom: -0.781em;}
+    @media screen and (max-width:2560px){
+        #pumpkin{
+            position:absolute;
+            top: 80%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            text-align: left;
+            font-size: 5rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 3rem;
+        }
+        #share{
+            font-size: 2.5rem;
+            bottom: -4rem;
+        }
+        #interior{
+            font-size: 2.5rem;
+            bottom: -8rem;
+    }
+    #write{
+        font-size: 2.5rem;
+        bottom: -12rem;
+    }
+    }
+    @media screen and (max-width:1441px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            max-width: 100%;
+            text-align: left;
+            font-size: 4rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 3rem;
+        }
+        #share{
+            font-size: 2.5rem;
+        }
+        #interior{
+            font-size: 2.5rem;
+    }
+    #write{
+        font-size: 2.5rem;
+    }
+    }
+    @media screen and (max-width:1025px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            text-align: left;
+            font-size: 3rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 3rem;
+        }
+        #share{
+            font-size: 2.5rem;
+        }
+        #interior{
+            font-size: 2.5rem;
+        }
+        #write{
+            font-size: 2.5rem;
+    }
+    }
+    @media screen and (max-width:769px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            max-width: 100%;
+            text-align: left;
+            font-size: 2rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 2.5rem;
+        }
+        #share{
+            font-size: 2rem;
+            bottom: -3rem;
+        }
+        #interior{
+            font-size: 2rem;
+            bottom: -6rem;
+        }
+        #write{
+            font-size: 2rem;
+            bottom: -9rem;
+        }
+    }
+    @media screen and (max-width:426px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            text-align: left;
+            font-size: 1.8rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 1.7rem;
+        }
+        #share{
+            font-size: 2rem;
+        }
+        #interior{
+            font-size: 2rem;
+        }
+        #write{
+            font-size: 2rem;
+        }
+    }
+    @media screen and (max-width:376px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            text-align: left;
+            font-size: 1.5rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 1.7rem;
+        }
+        #share{
+            font-size: 2rem;
+        }
+        #interior{
+            font-size: 2rem;
+        }
+        #write{
+            font-size: 2rem;
+        }
+    }
+    @media screen and (max-width:320px){
+        #pumpkin{
+            position:absolute;
+            bottom: 30%;
+            left: 50%;
+            transform:translate(-50%,-50%)
+        }
+        #페이지{
+            position: absolute;
+            text-align: left;
+            font-size: 1.3rem;
+        }
+        .speech-bubble {
+            position: absolute;
+            bottom:33%;
+            left:45%;
+            font-size: 1.6rem;
+        }
+        #share{
+            font-size: 2rem;
+        }
+        #interior{
+            font-size: 2rem;
+        }
+        #write{
+            font-size: 2rem;
+        }
+    }
         a {
         text-decoration: none;
         }
@@ -27,12 +314,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
         function showPopup() { window.open("{% url 'ranking_kr' username=username%}", "a", "width=300, heig500, left=100, top=50"); }
+        function clip(){
+
+            var url = '';
+            var textarea = document.createElement("textarea");
+            document.body.appendChild(textarea);
+            url = window.document.location.href;
+            textarea.value = url;
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("URL copied successfully")
+        }
     </script>
 </head>
 <body>
      <span id="페이지">🎃{{candy}} candies were sent<br >
         to {{ username }}
-     <button id="share">share with friends</button>
+     <button id="share"><a href="#" onclick="clip(); return false;">copy the link</a></button>
      <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none;">inside pumpkin</a></button>
 
      <button id="write" onclick="showPopup();">ranking</button>
