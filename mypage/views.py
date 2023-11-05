@@ -71,7 +71,10 @@ def update_click_count(request, username):
 @login_required
 def mainpage(request, username):
     user = request.user
-    profile = UserProfile.objects.get(user=user)
+    try:
+        profile = UserProfile.objects.get(user=user)
+    except:
+        return render(request, 'ginlo/ginlo.html')
     language = profile.language
     if language == 'en':
         return redirect('mypage_eg', username)
@@ -92,7 +95,11 @@ def mainpage(request, username):
 @login_required
 def mypage_eg(request, username):
     user = request.user
-    profile = UserProfile.objects.get(user=user)
+    user = request.user
+    try:
+        profile = UserProfile.objects.get(user=user)
+    except:
+        return render(request, 'ginlo/ginlo.html')
     language = profile.language
     if language == 'ko':
         return redirect('mypage_kr', username)
