@@ -210,5 +210,5 @@ def user_view(request, username, num):
     try:
         article = Article.objects.get(id=num, user=User.objects.get(username=username))
         return render(request, 'view.html', {'article': article})
-    except Article.DoesNotExist:
+    except Article.DoesNotExist:    
         return redirect('user_list', username=username)
