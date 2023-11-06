@@ -205,7 +205,7 @@ def user_list(request, username):
     article_list = Article.objects.filter(user=username)
     return render(request, 'list.html', {'article_list': article_list})
 
-@login_required
+
 def user_view(request, username, num):
     try:
         article = Article.objects.get(id=num, user=User.objects.get(username=username))
