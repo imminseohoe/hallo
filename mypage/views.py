@@ -68,7 +68,7 @@ def update_click_count(request, username):
         house_click.save()
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
-@login_required
+
 def mainpage(request, username):
     user = request.user
 
@@ -91,7 +91,7 @@ def mainpage(request, username):
     }
     return render(request, 'mypage/kr/mainpage.html', context)
 
-@login_required
+
 def mypage_eg(request, username):
     user = request.user
     profile = UserProfile.objects.get(user=user)
