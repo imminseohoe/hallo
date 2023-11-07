@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect
 from mypage.forms import Form
-from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 
 @login_required
@@ -19,7 +18,6 @@ def ranking_kr(request, username):
     user_house = user.userprofile.house if user.userprofile and user.userprofile.house else ""
     house_attr = f"{user_house.lower()}_click" if user_house else ""
     my_house_click_count = getattr(house_click, house_attr, 0)
-
 
 
     pos_click  = house_click.poseidon_click
@@ -68,7 +66,7 @@ def update_click_count(request, username):
         house_click.save()
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
-
+@login_required
 def mainpage(request, username):
     user = request.user
 
@@ -91,7 +89,7 @@ def mainpage(request, username):
     }
     return render(request, 'mypage/kr/mainpage.html', context)
 
-
+@login_required
 def mypage_eg(request, username):
     user = request.user
     profile = UserProfile.objects.get(user=user)
