@@ -111,6 +111,7 @@ def mypage_eg(request, username):
         'candy' : len(article_list),
     }
     return render(request, 'mypage/eg/mainpage_eg.html', context)
+
 @login_required
 def inside_pumpkin_eg(request, username,page_num):
     user = request.user

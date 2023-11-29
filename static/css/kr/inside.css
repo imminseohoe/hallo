@@ -1,0 +1,36 @@
+#candy {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    bottom: 25%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+div{
+    color: white;
+}
+ul {
+
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+
+.span{
+    position: fixed;
+    bottom: 1px;
+    left:50%;
+    transform:translate(-50%,-50%)
+}
+#friend{
+    font-size: 2.5rem;
+    font-family: 'Cute Font', cursive;
+    border-radius: 15px;
+}

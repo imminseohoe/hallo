@@ -1,5 +1,16 @@
+clicks{
+    position: fixed;
+    right: 0px;
+    top:0px;
+    color:red;
+    font-size: 2rem;
+}
+
+a{
+    text-decoration-line: none;
+}
 #페이지{
-    color:white;
+    color:red;
     font-size: 4.5rem;
     text-align:left;
     font-family: 'Orbit', sans-serif;
@@ -11,6 +22,7 @@
     width: 30rem;
     max-width:100%;
     height: auto;
+    
 }
 
 #share{
@@ -19,8 +31,8 @@
     bottom:-3rem;
     font-size: 1.5rem;
     border:1px solid;
-    color:white;
-    background-color: black;
+    color:black;
+    background-color: rgb(244, 67, 67);
     font-family: 'Cute Font', cursive;
     border-radius: 15px;
 }
@@ -30,8 +42,8 @@
     bottom:-6rem;
     font-size:1.5rem;
     border:1px solid;
-    color:black;
-    background-color: rgb(255, 140, 0);
+    color:white;
+    background-color: black;
     font-family: 'Cute Font', cursive;
     border-radius: 15px;
 }
@@ -45,27 +57,33 @@
     border-radius: 15px;
 
 }
+#find{
+    position: absolute;
+    left: 2px;
+    bottom: -12rem;
+    font-size: 1.5rem;
+    border: 1px solid;
+    font-family: 'Cute Font', cursive;
+    border-radius: 15px;
+}
 #share:active{
+    color:white;
+    background-color: rgb(244, 67, 67);
+}
+#interior:active{
     color:black;
     background-color: white;
 }
-#interior:active{
-    color:white;
-    background-color: rgb(160, 88, 0);
-}
-#write:active{
-    color:black;
-    background-color: rgb(196, 193, 193);
-}
+  
 .speech-bubble {
 	position: absolute;
-    bottom:40%;
-    left:50%;
+    bottom:50%;
+    left:60%;
     transform:translate(-50%,-50%);
 	background: #ffffff;
 	border-radius: .4em;
     font-size: 3rem;
-    font-family: 'Black And White Picture', cursive;
+    font-family: 'Cute Font', cursive;
     word-break: keep-all;
 }
 .speech-bubble:after {
@@ -95,8 +113,8 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
+        bottom:40%;
+        left:50%;
         font-size: 3rem;
     }
     #share{
@@ -106,11 +124,15 @@
     #interior{
         font-size: 2.5rem;
         bottom: -8rem;
-}
-#write{
-    font-size: 2.5rem;
-    bottom: -12rem;
-}
+    }
+    #write{
+        font-size: 2.5rem;
+        bottom: -12rem;
+    }
+    #find{
+        font-size: 2.5rem;
+        bottom: -16rem;
+    }
 }
 @media screen and (max-width:1441px){
     #pumpkin{
@@ -127,8 +149,8 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
+        bottom:40%;
+        left:50%;
         font-size: 3rem;
     }
     #share{
@@ -136,10 +158,13 @@
     }
     #interior{
         font-size: 2.5rem;
-}
-#write{
-    font-size: 2.5rem;
-}
+    }
+    #write{
+        font-size: 2.5rem;
+    }
+    #find{
+        font-size: 2.5rem;
+    }
 }
 @media screen and (max-width:1025px){
     #pumpkin{
@@ -155,8 +180,8 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
+        bottom:40%;
+        left:50%;
         font-size: 3rem;
     }
     #share{
@@ -167,12 +192,15 @@
     }
     #write{
         font-size: 2.5rem;
-}
+    }
+    #find{
+        font-size: 2.5rem;
+    }
 }
 @media screen and (max-width:769px){
     #pumpkin{
         position:absolute;
-        bottom: 30%;
+        bottom: 40%;
         left: 50%;
         transform:translate(-50%,-50%)
     }
@@ -184,8 +212,8 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
+        bottom:40%;
+        left:50%;
         font-size: 2.5rem;
     }
     #share{
@@ -200,11 +228,15 @@
         font-size: 2rem;
         bottom: -9rem;
     }
+    #find{
+        font-size: 2rem;
+        bottom: -12rem;
+    }
 }
 @media screen and (max-width:426px){
     #pumpkin{
         position:absolute;
-        bottom: 30%;
+        bottom: 40%;
         left: 50%;
         transform:translate(-50%,-50%)
     }
@@ -215,9 +247,9 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
-        font-size: 1.7rem;
+        bottom:40%;
+        left:50%;
+        font-size: 2rem;
     }
     #share{
         font-size: 2rem;
@@ -228,11 +260,14 @@
     #write{
         font-size: 2rem;
     }
+    #find{
+        font-size: 2rem;
+    }
 }
 @media screen and (max-width:376px){
     #pumpkin{
         position:absolute;
-        bottom: 30%;
+        bottom: 40%;
         left: 50%;
         transform:translate(-50%,-50%)
     }
@@ -243,8 +278,8 @@
     }
     .speech-bubble {
         position: absolute;
-        bottom:33%;
-        left:45%;
+        bottom:40%;
+        left:50%;
         font-size: 1.7rem;
     }
     #share{
@@ -254,6 +289,9 @@
         font-size: 2rem;
     }
     #write{
+        font-size: 2rem;
+    }
+    #find{
         font-size: 2rem;
     }
 }
@@ -272,7 +310,7 @@
     .speech-bubble {
         position: absolute;
         bottom:33%;
-        left:45%;
+        left:50%;
         font-size: 1.6rem;
     }
     #share{
@@ -282,6 +320,9 @@
         font-size: 2rem;
     }
     #write{
+        font-size: 2rem;
+    }
+    #find{
         font-size: 2rem;
     }
 }

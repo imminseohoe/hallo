@@ -30,7 +30,7 @@
         }
 
         body {
-            background-image: url("{% static 'img/inside_pumpkin_background.png' %}");
+            background-image: url("{% static 'img/background.png' %}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -54,7 +54,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inside</title>
-    <link href="{% static 'css/kr/inside_pumpkin.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/kr/inside.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -71,21 +71,7 @@
         {% for article in article_list %}
             <li>
                 from: {{ article.name }} 
-                <a href="../view/{{ article.id }}"><img class="one_letter" src="" alt="Candy Image" /></a>
-                <script>
-                    var candyImages = [
-                        "{% static 'img/candy/candy1.png' %}",
-                        "{% static 'img/candy/candy2.png' %}",
-                        "{% static 'img/candy/candy3.png' %}",
-                        "{% static 'img/candy/candy4.png' %}"
-                    ];
-
-                    var randomIndex = Math.floor(Math.random() * candyImages.length);
-                    var randomImage = candyImages[randomIndex];
-
-                    var imageElement = document.querySelector("li:last-child .one_letter");
-                    imageElement.src = randomImage;
-                </script>
+                <a href="../view/{{ article.id }}"><img class="one_letter" src= "{% static 'img/present.png' %}" alt="Candy Image" /></a>
                 <br>
             </li>
         {% endfor %}

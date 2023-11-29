@@ -8,7 +8,7 @@
           background-color: transparent;
         }
         body {
-            background-image: url("{% static 'img/background.jpg' %}");
+            background-image: url("{% static 'img/background.png' %}");
             background-size: cover;
             background-repeat : no-repeat;
             background-position: center;
@@ -19,12 +19,12 @@
           }
       </style>
       <link rel="stylesheet" href="{% static 'css/kr/login.css' %}">
-      <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+      <link rel="website icon" type="png" href="{% static 'img/icon.png' %}">
 
 </head>
 <body>
-    <span id="페이지">🎃Make your pumpkin🎃</span>
-    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}"alt="pumpkin">
+    <span id="페이지">🎁Send gift🎁</span>
+    <img id="pumpkin" src = "{% static 'img/gift_box.png' %}"alt="pumpkin">
     <form action="{% provider_login_url 'google' %}" method="post">
       {% csrf_token %}
       <button id = "google"type="submit" class="image-button">
