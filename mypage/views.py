@@ -69,7 +69,9 @@ def update_click_count(request, username):
 @login_required
 def mainpage(request, username):
     user = request.user
-
+    userr = User.objects.get(username=username)
+    click_count_obj, created = ClickCount.objects.get_or_create(user=userr)
+    click_count = click_count_obj.click_count
     profile = UserProfile.objects.get(user=user)
 
     language = profile.language
@@ -85,12 +87,16 @@ def mainpage(request, username):
     context = {
         'user': user,
         'username' : username,
-        'candy' : len(article_list)
+        'candy' : len(article_list),
+        'click_count' : click_count
     }
     return render(request, 'mypage/kr/mainpage.html', context)
 
 @login_required
 def mypage_eg(request, username):
+    userr = User.objects.get(username=username)
+    click_count_obj, created = ClickCount.objects.get_or_create(user=userr)
+    click_count = click_count_obj.click_count
     user = request.user
     profile = UserProfile.objects.get(user=user)
 
@@ -109,6 +115,7 @@ def mypage_eg(request, username):
         'user': user,
         'username' : username,
         'candy' : len(article_list),
+        'click_count' : click_count
     }
     return render(request, 'mypage/eg/mainpage_eg.html', context)
 
@@ -166,6 +173,7 @@ def inside_pumpkin(request, username, page_num):
             'max_pages': max_pages,
             'max_pages_minus_one': max_pages_minus_one,
             'range' : range(1,max_pages+1)
+
         }
         return render(request, 'mypage/kr/inside_pumpkin.html', context)
     else:

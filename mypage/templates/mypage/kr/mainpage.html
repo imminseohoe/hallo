@@ -16,12 +16,12 @@
         }
 
    </style>
-    <script src ="{% static 'js/kr/main.js' %}"></script>
+    <script src ="{% static 'js/kr/mainp.js' %}"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trick or letter</title>
-    <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
-    <link rel="stylesheet" href="{% static 'css/kr/mainpage.css' %}">
+    <title>clicksmas</title>
+    <link rel="website icon" type="png" href="{% static 'img/icon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/kr/main_page.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
 		  function showPopup() {
@@ -43,13 +43,14 @@
     </script>
 </head>
 <body>
-     <span id="페이지">🎁{{ username }} 님에게<br >
+     <span id="페이지">🎁{{ username }} 님에게
         {{candy}}개의 선물이 전달됐어요
-     <button id="interior"><a href="{% url 'inside_pumpkin' username=username page_num=1 %}" style="text-decoration: none; color:white" >호박내부보기</a></button>
+     <button id="interior"><a href="{% url 'inside_pumpkin' username=username page_num=1 %}" style="text-decoration: none; color:white" >양말내부보기</a></button>
      <button id="share"><a href="#" onclick="clip(); return false;" style="text-decoration: none; color:white" >링크복사하기</a></button>
-     <button id="write" onclick="showPopup();">랭킹</button>
+     <button id="write" onclick="showPopup();">랭킹</button> <span class="clicks"></span>
      </span>
-    <img id="pumpkin" src = "{% static 'img/pumpkin.png' %}" onclick='myFunction()' alt="pumpkin">
-    <span class="speech-bubble">안녕</span>   
+    <img id="pumpkin" src = "{% static 'img/sock.png' %}" onclick='myFunction()' alt="pumpkin">
+    <span class="speech-bubble">나를 클릭해봐!</span>   
+    
 
 </body>

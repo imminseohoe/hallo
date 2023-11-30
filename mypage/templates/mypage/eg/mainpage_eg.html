@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <script src ="{% static 'js/eg/main.js' %}"></script>
+   <script src ="{% static 'js/eg/mainp.js' %}"></script>
    <style>
 
         body {
@@ -19,9 +19,9 @@
    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trick or letter</title>
+    <title>clicksmas</title>
     <link rel="website icon" type="png" href="{% static 'img/icon.png' %}">
-    <link rel="stylesheet" href="{% static 'css/kr/mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/kr/main_page.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
         function showPopup() { window.open("{% url 'ranking_kr' username=username%}", "a", "width=300, heig500, left=100, top=50"); }
@@ -46,7 +46,7 @@
     {% else %}
         gift
     {% endif %}
-    were sent<br>
+    were sent
     to {{ username }}
      <button id="share"><a id="ll"href="#" onclick="clip(); return false;"style="text-decoration: none; color:white" >copy the link</a></button>
      <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none; color:white" >check a sock</a></button>
@@ -54,7 +54,9 @@
      <button id="write" onclick="showPopup();">ranking</button>
      </span>
     <img id="pumpkin" src = "{% static 'img/sock.png' %}" onclick='myFunction()' alt="pumpkin">
-    <span class="speech-bubble">check a sock</span>   
+    <span class="speech-bubble">click me!</span>   
+
+
 
 
 </body>

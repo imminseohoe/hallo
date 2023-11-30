@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view</title>
-    <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+    <link rel="website icon" type="png" href="{% static 'img/icon.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script>
         function goBack() {
@@ -20,7 +20,7 @@
             top:20px;
         }
         body {
-            background-image: url("{% static 'img/background_letter.jpg' %}");
+            background-image: url("{% static 'img/christmas_letter.jpg' %}");
             background-size: cover;
             background-repeat : no-repeat;
             background-position: center;
@@ -50,6 +50,6 @@
 <body>
     <a class="a">From {{article.name}}</a>
     <br>
-    <b class="b">{{article.contents}}<br></b>   <button class="pumpkin"  onclick="goBack()">back to pumpkin</button>
+    <b class="b">{{article.contents}}<br></b>   <button class="pumpkin"  onclick="goBack()">back to sock</button>
 </body>
 </html>

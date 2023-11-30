@@ -1,9 +1,7 @@
-clicks{
-    position: fixed;
-    right: 0px;
-    top:0px;
+.clicks{
+
     color:red;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 a{
@@ -19,7 +17,7 @@ a{
 }
 #pumpkin{
     position:absolute;
-    width: 30rem;
+    width: 10rem;
     max-width:100%;
     height: auto;
     

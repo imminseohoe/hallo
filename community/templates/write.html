@@ -9,8 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     
     <style>
+        div{
+            font-weight:bold;
+        }
         body {
-            background-image: url("{% static 'img/background_letter.jpg' %}");
+            background-image: url("{% static 'img/christmas_letter.jpg' %}");
             background-size: cover;
             background-repeat : no-repeat;
             background-position: center;
@@ -23,12 +26,14 @@
 
         }
     </style>
-    <link rel="website icon" type="png" href="{% static 'img/pumpkin_icon.png' %}">
+    <link rel="website icon" type="png" href="{% static 'img/icon.png' %}">
 </head>
 <body>
     <form class="form" method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
+        <div>
+            {{ form.as_p }}
+            {% csrf_token %}
+        <div>
         <button type="submit" class="btn btn-primary">send</button>
     </form>
 </body>
