@@ -31,7 +31,7 @@
     <div class="ppp" >
         page:
         {% for page in range %}
-            <a href="/mypage/eg/{{ username }}/inside_pumpkin/{{ page }}">{{ page }}</a>
+            <a href="{% url 'inside_pumpkin_eg' username=username page_num=page %}">{{page}}</a>
         {% endfor %}
     </div>
     <ul>
