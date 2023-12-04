@@ -11,6 +11,6 @@ urlpatterns = [
     path('accounts/',include('allauth.urls')),
     path('mypage/', include('mypage.urls')),
     path('ranking/', ranking_kr, name="ranking_kr"),
-
+    
 
 ]

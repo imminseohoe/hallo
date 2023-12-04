@@ -18,6 +18,10 @@ class Article(models.Model):
 class ClickCount(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     click_count = models.IntegerField(default=0)
+class Score(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    socre_count = models.IntegerField(default=0)
+
 
 class HouseClick(models.Model):
     apollo_click = models.IntegerField(default=0)

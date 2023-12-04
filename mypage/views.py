@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from mypage.models import UserProfile, Article, ClickCount,HouseClick
+from mypage.models import UserProfile, Article, ClickCount,HouseClick, Score
 from django.contrib.auth.models import User
 from django.http import Http404
 from django.shortcuts import render, redirect
@@ -67,6 +67,25 @@ def update_click_count(request, username):
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 @login_required
+def update_socre(request, username):
+    if request.method == 'POST':
+        score = request.POST['score']
+        user = request.user
+        sum_score,created = Score.objects.get_or_create(user = user)
+        sum_score.socre_count += score
+        sum = sum_score.socre_count
+        house_click = HouseClick.objects.first()
+        if user.userprofile.house == 'Poseidon':
+            house_click.poseidon_click += score
+        elif user.userprofile.house == 'Athena':
+            house_click.athena_click += score
+        elif user.userprofile.house == 'Apollo':
+            house_click.apollo_click += score
+        elif user.userprofile.house == 'Artemis':
+            house_click.artemis_click += score
+
+        
+@login_required
 def mainpage(request, username):
     user = request.user
     userr = User.objects.get(username=username)
@@ -99,7 +118,8 @@ def mypage_eg(request, username):
     click_count = click_count_obj.click_count
     user = request.user
     profile = UserProfile.objects.get(user=user)
-
+    sum_score,created = Score.objects.get_or_create(user = user)
+    sum = sum_score.socre_count
     language = profile.language
     if language == 'ko':
         return redirect('mypage_kr', username)
@@ -115,7 +135,7 @@ def mypage_eg(request, username):
         'user': user,
         'username' : username,
         'candy' : len(article_list),
-        'click_count' : click_count
+        'score' : sum
     }
     return render(request, 'mypage/eg/mainpage_eg.html', context)
 
@@ -205,7 +225,9 @@ def write(request, username):
         form = Form()
                                                                                                                                                         
     return render(request, 'write.html', {'form': form})
-
+@login_required
+def game(request, username):
+    return render(request, 'mypage/eg/popup.html')
 @login_required
 def user_list(request, username):
     user = User.objects.get(username=username)

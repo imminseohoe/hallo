@@ -10,6 +10,9 @@ function myFunction() {
     url: '/mypage/<str:username>/update_click_count/',
     type: 'POST',
     dataType: 'json',
+    data: {
+      'score': username
+    },
     beforeSend: function(xhr, settings) {
       xhr.setRequestHeader("X-CSRFToken", csrftoken);
     },

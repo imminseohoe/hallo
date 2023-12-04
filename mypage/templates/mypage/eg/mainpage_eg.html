@@ -25,31 +25,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Cute+Font&family=IBM+Plex+Sans+KR:wght@500&family=Orbit&display=swap" rel="stylesheet">
     <script language="javascript">
         function showPopup() { window.open("{% url 'ranking_kr' username=username%}", "a", "width=300, heig500, left=100, top=50"); }
-        function clip(){
-
-            var url = '';
-            var textarea = document.createElement("textarea");
-            document.body.appendChild(textarea);
-            url = window.document.location.href;
-            textarea.value = url;
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
-            alert("URL copied successfully")
-        }
+        function showpopup() { window.open("{% url 'game' username=username%}", "a", "width=300, heig500, left=100, top=50"); }
     </script>
 </head>
 <body>
-     <span id="페이지">🎁{{candy}} 
-    {% if candy >= 2 %}
-        gifts
-    {% else %}
-        gift
-    {% endif %}
-    were sent
-    to {{ username }}
+     <span id="페이지">🎁{{username}}is
+        scoring {{score}} now!
      <button id="share"><a id="ll"href="#" onclick="clip(); return false;"style="text-decoration: none; color:white" >copy the link</a></button>
-     <button id="interior"><a href="{% url 'inside_pumpkin_eg' username=username page_num=1 %}" style="text-decoration: none; color:white" >check a sock</a></button>
+     <button id="interior" onclick="showpopup()">start a game</button>
 
      <button id="write" onclick="showPopup();">ranking</button>
      </span>

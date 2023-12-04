@@ -16,4 +16,6 @@ urlpatterns = [
     path('<str:username>/list/', views.user_list, name='user_list'),
     path('eg/<str:username>/inside_pumpkin/<int:page_num>/  ', views.inside_pumpkin_eg, name='inside_pumpkin_eg'),
     path('<str:username>/eg/', views.mypage_eg, name='mypage_eg'),
+    path('<str:username>/game/', views.game, name= 'game'),
+    path('<str:username>/update_score/', views.update_socre, name= 'update_socre'),
 ]
