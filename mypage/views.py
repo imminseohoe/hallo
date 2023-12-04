@@ -73,8 +73,8 @@ def update_socre(request, username):
         user = request.user
         sum_score,created = Score.objects.get_or_create(user = user)
         score = int(score)
-        sum_score.socre_count += score
-        sum = sum_score.socre_count
+        sum_score.score_count += score
+        sum = sum_score.score_count
         house_click = HouseClick.objects.first()
         if user.userprofile.house == 'Poseidon':
             house_click.poseidon_click += score
