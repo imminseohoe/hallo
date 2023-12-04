@@ -3,7 +3,7 @@ var click = 0;
 
 function myFunction() {
   var imageElement = document.getElementById("pumpkin");
-  var elee = document.getElementById("share");
+  var elee = document.getElementById("interior");
   var csrftoken = getCookie('csrftoken');
   var eeee = document.getElementById("페이지")
   $.ajax({
