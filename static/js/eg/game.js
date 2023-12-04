@@ -14,20 +14,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return cookieValue;
       }
-      
+    
     const canvas = document.getElementById("game-canvas");
     const context = canvas.getContext("2d");
     let isGameOver = false;
     var sc = 0
     const playerImage = new Image();
     playerImage.src = "/static/img/stand.png";
-    var ttme = 30;
     const poopImage = new Image();
-    poopImage.src = "/static/img/present.png";
+    poopImage.src = "/static/img/snow.png";
 
     const maxPoopInterval = 600; 
     let poopInterval = maxPoopInterval; 
-    
+    function updateScore() {
+      if(!isGameOver){
+        sc++;
+        document.querySelector('#score').innerText = sc;}
+    }
     const player = {
       x: canvas.width / 2 - 25,
       y: 330,
@@ -66,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const poop = {
           x: Math.random() * (canvas.width - 50),
           y: 0,
-          width: 40,
-          height: 40,
+          width: 30,
+          height: 30,
           image: poopImage,
         };
         poops.push(poop);
@@ -88,8 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
   
         if (checkCollision(player, poop)) {
-            sc += 1
-            document.querySelector('#score').innerText = sc;
+          gameOver();
         }
       }
     }
@@ -136,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function resetGame() {
         isGameOver = false;
         sc = 0;
-        ttme = 30;
         poops.length = 0;
         document.querySelector('#score').innerText = sc;
         document.body.removeChild(document.querySelector("button"));
@@ -151,9 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updatePlayerPosition();
         updatePoopPosition();
       
-        if (ttme <= 0) {
-          gameOver();
-        }
       
         if (!isGameOver) {
           requestAnimationFrame(gameLoop);
@@ -174,11 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   
-    setInterval(generatePoop, 200);
-    setInterval(function()  {
-        if (ttme >= 1){
-        ttme -= 1;
-        document.querySelector('#time').innerText = ttme};
-    }, 1000);
+    setInterval(generatePoop, 500);
+    setInterval(updateScore, 1000);
     gameLoop();
   });

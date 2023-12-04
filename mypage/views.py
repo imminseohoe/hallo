@@ -115,11 +115,7 @@ def mainpage(request, username):
 
 @login_required
 def mypage_eg(request, username):
-    userr = User.objects.get(username=username)
-    click_count_obj, created = ClickCount.objects.get_or_create(user=userr)
-    click_count = click_count_obj.click_count
     user = request.user
-    profile = UserProfile.objects.get(user=user)
     sum_score,created = Score.objects.get_or_create(user = user)    
     sum = sum_score.score_count
 
