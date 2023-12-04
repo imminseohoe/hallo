@@ -9,10 +9,10 @@ from django.http import JsonResponse
 @login_required
 def ranking_kr(request, username):
     user = User.objects.get(username=username)
-    top_click_counts = ClickCount.objects.order_by('-click_count')[:30]
-    click_count_obj, created = ClickCount.objects.get_or_create(user=user)
-    click_count = click_count_obj.click_count
-    my_rank = ClickCount.objects.filter(click_count__gt=click_count).count() + 1
+    top_click_counts = Score.objects.order_by('-score_count')[:30]
+    score_count_obj, created = Score.objects.get_or_create(user=user)
+    score_count = score_count_obj.score_count
+    my_rank = Score.objects.filter(score_count__gt=score_count).count() + 1
     house_click = HouseClick.get_or_create()
 
     user_house = user.userprofile.house if user.userprofile and user.userprofile.house else ""
@@ -31,7 +31,7 @@ def ranking_kr(request, username):
 
     context = {
         'username': username,
-        'click_count': click_count,
+        'click_count': score_count,
         'top_click_counts': top_click_counts,
         'my_rank': my_rank,
         'my_house_click_count': my_house_click_count,
@@ -72,6 +72,7 @@ def update_socre(request, username):
         score = request.POST['score']
         user = request.user
         sum_score,created = Score.objects.get_or_create(user = user)
+        score = int(score)
         sum_score.socre_count += score
         sum = sum_score.socre_count
         house_click = HouseClick.objects.first()
@@ -83,6 +84,10 @@ def update_socre(request, username):
             house_click.apollo_click += score
         elif user.userprofile.house == 'Artemis':
             house_click.artemis_click += score
+        sum_score.save()
+        house_click.save()
+        return JsonResponse({'success': True})
+
 
         
 @login_required
@@ -93,9 +98,6 @@ def mainpage(request, username):
     click_count = click_count_obj.click_count
     profile = UserProfile.objects.get(user=user)
 
-    language = profile.language
-    if language == 'en':
-        return redirect('mypage_eg', username)
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -118,11 +120,9 @@ def mypage_eg(request, username):
     click_count = click_count_obj.click_count
     user = request.user
     profile = UserProfile.objects.get(user=user)
-    sum_score,created = Score.objects.get_or_create(user = user)
-    sum = sum_score.socre_count
-    language = profile.language
-    if language == 'ko':
-        return redirect('mypage_kr', username)
+    sum_score,created = Score.objects.get_or_create(user = user)    
+    sum = sum_score.score_count
+
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -216,11 +216,8 @@ def write(request, username):
             article.save()
             user = request.user
             profile = UserProfile.objects.get(user=user)
-            language = profile.language
-            if language == 'ko':
-                return redirect('mypage_kr', username)
-            else:
-                return redirect('mypage_eg', username)
+
+            return redirect('mypage_eg', username)
     else:
         form = Form()
                                                                                                                                                         

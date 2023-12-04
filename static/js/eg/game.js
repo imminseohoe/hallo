@@ -1,5 +1,20 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+      
     const canvas = document.getElementById("game-canvas");
     const context = canvas.getContext("2d");
     let isGameOver = false;
@@ -88,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
     function gameOver() {
+        var csrftoken = getCookie('csrftoken');
         isGameOver = true;
       
         context.font = "40px Arial";
@@ -160,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
     setInterval(generatePoop, 200);
     setInterval(function()  {
-        
-         ttme -= 1;
-         document.querySelector('#time').innerText = ttme
+        if (ttme >= 1){
+        ttme -= 1;
+        document.querySelector('#time').innerText = ttme};
     }, 1000);
     gameLoop();
   });

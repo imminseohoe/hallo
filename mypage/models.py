@@ -20,7 +20,7 @@ class ClickCount(models.Model):
     click_count = models.IntegerField(default=0)
 class Score(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    socre_count = models.IntegerField(default=0)
+    score_count = models.IntegerField(default=0)
 
 
 class HouseClick(models.Model):
