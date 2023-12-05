@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       width: 50,
       height: 66,
       image: playerImage,
-      speed: 4, 
+      speed: 5, 
       dx: 0, 
     };
   

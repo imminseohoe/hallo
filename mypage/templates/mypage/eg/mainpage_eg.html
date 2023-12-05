@@ -15,7 +15,12 @@
         width: auto;
         margin: 0;
         }
-    
+        #hih{
+            color : mediumaquamarine;
+            font-size : 40px;
+            font-weight : bold
+
+        }
    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +34,14 @@
     </script>
 </head>
 <body>
+    
      <span id="페이지">🎁{{username}} is scoring {{score}} now!
-
-     <button id="interior" onclick="showpopup()">start a game</button>
-
-     <button id="write" onclick="showPopup();">ranking</button>
+      <!-- <span id = 'hih'>highest score:
+            <span id = 'high'>{{highest_score}}</span>
+        </span>
+         --> 
+        <button id="interior" onclick="showpopup()">start a game</button>
+        <button id="write" onclick="showPopup();">ranking</button>
      </span>
     <img id="pumpkin" src = "{% static 'img/sock.png' %}" onclick='myFunction()' alt="pumpkin">
     <span class="speech-bubble">click me!</span>   

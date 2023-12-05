@@ -118,7 +118,7 @@ def mypage_eg(request, username):
     user = request.user
     sum_score,created = Score.objects.get_or_create(user = user)    
     sum = sum_score.score_count
-
+    #highest_score = 
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
@@ -131,7 +131,8 @@ def mypage_eg(request, username):
         'user': user,
         'username' : username,
         'candy' : len(article_list),
-        'score' : sum
+        'score' : sum,
+       # 'highest_score' : highest_score,
     }
     return render(request, 'mypage/eg/mainpage_eg.html', context)
 
