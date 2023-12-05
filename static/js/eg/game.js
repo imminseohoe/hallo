@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const context = canvas.getContext("2d");
     let isGameOver = false;
     var sc = 0
+    const presentImage = new Image();
+    presentImage.src = "/static/img/present.png";
     const playerImage = new Image();
     playerImage.src = "/static/img/stand.png";
     const poopImage = new Image();
@@ -42,11 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   
     const poops = [];
-  
+    const presents = [];
     function drawPlayer() {
       context.drawImage(player.image, player.x, player.y, player.width, player.height);
     }
-  
+    function drawPresents() {
+      for (let i = 0; i < presents.length; i++) {
+        const present = presents[i];
+        context.drawImage(present.image, present.x, present.y, present.width, present.height);
+      }
+    }
     function drawPoops() {
       for (let i = 0; i < poops.length; i++) {
         const poop = poops[i];
@@ -64,7 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
         player.x = canvas.width - player.width;
       }
     }
-  
+    function generatePresent(){
+      const presnt = {
+        x: Math.random() * (canvas.width - 50),
+        y: 0,
+        width: 30,
+        height: 30,
+        image: presentImage,
+      };
+      presents.push(presnt);
+    }
     function generatePoop() {
         const poop = {
           x: Math.random() * (canvas.width - 50),
@@ -80,7 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
       
 
       }
+    function updatePresentPosition(){
+      for (let i = 0; i < presents.length; i++) {
+        const presnt = presents[i];
+        presnt.y += 5;
   
+        if (presnt.y > canvas.height) {
+          presents.splice(i, 1); 
+        }
+        if (checkCollision(player, presnt)) {
+          updateScore()
+          
+        }
+      }
+    }
     function updatePoopPosition() {
       for (let i = 0; i < poops.length; i++) {
         const poop = poops[i];
@@ -139,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isGameOver = false;
         sc = 0;
         poops.length = 0;
+        presents.length = 0;
         document.querySelector('#score').innerText = sc;
         document.body.removeChild(document.querySelector("button"));
         gameLoop();
@@ -149,9 +179,12 @@ document.addEventListener("DOMContentLoaded", function () {
       
         drawPlayer();
         drawPoops();
+        drawPresents()
+        
+      ;
         updatePlayerPosition();
         updatePoopPosition();
-      
+        updatePresentPosition();
       
         if (!isGameOver) {
           requestAnimationFrame(gameLoop);
@@ -173,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     setInterval(generatePoop, 500);
-    setInterval(updateScore, 1000);
+    
+    setInterval(generatePresent, 331)
     gameLoop();
   });
